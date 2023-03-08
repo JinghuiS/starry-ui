@@ -2,7 +2,7 @@ import { type Component, createSignal } from "solid-js";
 
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import { Button, Tag } from "@starry-ui/components";
+import { Button, Input, Tag, Textarea } from "@starry-ui/components";
 import { tooltip } from "@starry-ui/directives";
 
 const App: Component = () => {
@@ -10,41 +10,18 @@ const App: Component = () => {
 
   return (
     <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button
-          directives={[
-            (el) => {
-              tooltip(el, () => ({
-                content: "111",
-                placement: "bottom",
-              }));
-            },
-          ]}
-        >
-          1
-        </Button>
-        <div
-          use:tooltip={{
-            content: "111",
-            placement: "bottom",
-            trigger: "click",
-          }}
-        >
-          11
-        </div>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+      <Button>1</Button>
+      <div
+        use:tooltip={{
+          content: "111",
+        }}
+      >
+        11
+      </div>
+      <div style={{ width: "300px" }}>
+        <Input showCount maxLength={5} />
+        <Textarea showCount maxLength={5} style={{ "margin-top": "20px" }} />
+      </div>
     </div>
   );
 };

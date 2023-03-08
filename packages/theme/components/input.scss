@@ -1,0 +1,338 @@
+.starry-input-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: var(--starry-form-border-width) var(--starry-form-border-color) solid;
+    border-radius: var(--starry-border-radius);
+    background-color: var(--starry-form-bgcolor);
+    transition: var(--starry-form-transition);
+    box-sizing: border-box;
+    outline: 0px var(--starry-primary-color-light) solid;
+
+    input,
+    textarea {
+        width: 100%;
+        text-overflow: ellipsis;
+        border: none;
+        background: none;
+        color: var(--starry-text-color-2);
+        outline: none;
+        box-sizing: border-box;
+    }
+
+    textarea::-webkit-scrollbar {
+        background-color: var(--starry-bgcolor-2);
+    }
+
+    textarea::-webkit-scrollbar-thumb:hover {
+        background-color: var(--starry-bgcolor-9);
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background-color: var(--starry-bgcolor-6);
+    }
+
+    input {
+        overflow: hidden;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: rgb(165, 165, 165);
+    }
+
+    .starry-input-controls {
+        display: inline-flex;
+        align-items: center;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: var(--starry-form-transition);
+
+        >div {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            min-width: 30px;
+            padding: 0px 5px;
+            box-sizing: border-box;
+            user-select: none;
+            opacity: 0.7;
+            transition: var(--starry-form-transition);
+        }
+
+        .starry-input-clear {
+            cursor: pointer;
+        }
+
+        .starry-input-show-password {
+            cursor: pointer;
+        }
+
+        >div:hover {
+            opacity: 1;
+        }
+    }
+
+    .starry-input-controls-show {
+        opacity: 0.8;
+        transform: translateX(0px);
+    }
+}
+
+.starry-input-view-align-left {
+
+    input,
+    textarea {
+        text-align: left;
+    }
+}
+
+.starry-input-view-align-center {
+
+    input,
+    textarea {
+        text-align: center;
+    }
+}
+
+.starry-input-view-align-right {
+
+    input,
+    textarea {
+        text-align: right;
+    }
+}
+
+.starry-input-view-auto-width {
+    position: relative;
+    width: auto;
+
+    input {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .input-auto-width {
+        width: auto;
+        min-width: 65px;
+        height: 100%;
+        visibility: hidden;
+        box-sizing: border-box;
+    }
+}
+
+.starry-input-view-small {
+
+    input,
+    textarea {
+        padding: var(--starry-form-input-padding-small);
+        font-size: var(--starry-form-font-size-small);
+        line-height: var(--starry-form-input-line-height-small);
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    input {
+        height: var(--starry-form-item-height-small);
+    }
+
+    textarea {
+        min-height: var(--starry-form-item-height-small);
+    }
+
+    .starry-input-controls {
+        height: var(--starry-form-item-height-small);
+    }
+
+    .input-auto-width {
+        height: var(--starry-form-item-height-small);
+        padding: var(--starry-form-input-padding-small);
+        font-size: var(--starry-form-font-size-small);
+        line-height: var(--starry-form-input-line-height-small);
+    }
+}
+
+.starry-input-view-medium {
+
+    input,
+    textarea {
+        padding: var(--starry-form-input-padding-medium);
+        font-size: var(--starry-form-font-size-medium);
+        line-height: var(--starry-form-input-line-height-medium);
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    input {
+        height: var(--starry-form-item-height-medium);
+    }
+
+    textarea {
+        min-height: var(--starry-form-item-height-medium);
+    }
+
+    .starry-input-controls {
+        height: var(--starry-form-item-height-medium);
+    }
+
+    .input-auto-width {
+        height: var(--starry-form-item-height-medium);
+        font-size: var(--starry-form-font-size-medium);
+        line-height: var(--starry-form-input-line-height-medium);
+        padding: var(--starry-form-input-padding-medium);
+    }
+}
+
+.starry-input-view-large {
+
+    input,
+    textarea {
+        padding: var(--starry-form-input-padding-large);
+        font-size: var(--starry-form-font-size-large);
+        line-height: var(--starry-form-input-line-height-large);
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    input {
+        height: var(--starry-form-item-height-large);
+    }
+
+    textarea {
+        min-height: var(--starry-form-item-height-large);
+    }
+
+    .starry-input-controls {
+        height: var(--starry-form-item-height-large);
+    }
+
+    .input-auto-width {
+        height: var(--starry-form-item-height-large);
+        padding: var(--starry-form-input-padding-large);
+        font-size: var(--starry-form-font-size-large);
+        line-height: var(--starry-form-input-line-height-large);
+    }
+}
+
+.starry-input-view-textarea {
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+
+    .starry-input-controls {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        background: var(--starry-form-bgcolor);
+        height: 18px;
+        border-radius: 2px;
+    }
+
+    .starry-input-controls-show {
+        transform: translateY(0px);
+    }
+
+    .starry-input-resize-none {
+        resize: none;
+    }
+
+    .starry-input-resize-horizontal {
+        resize: horizontal;
+    }
+
+    .starry-input-resize-vertical {
+        resize: vertical;
+    }
+
+    .starry-input-resize-both {
+        resize: both;
+    }
+
+    .starry-input-resize-inline {
+        resize: inline;
+    }
+}
+
+.starry-input-view:hover {
+    border: var(--starry-form-border-width) var(--starry-form-border-color-hover) solid;
+    background-color: var(--starry-form-bgcolor-hover);
+
+    .starry-input-controls {
+        background: var(--starry-form-bgcolor-hover);
+    }
+}
+
+.starry-input-view:active {
+    background-color: var(--starry-form-bgcolor-active);
+}
+
+.starry-input-view:focus-within {
+    background-color: var(--starry-form-bgcolor-focus);
+    border: var(--starry-form-border-width) var(--starry-form-border-color-focus) solid;
+    outline: 3px var(--starry-primary-color-light) solid;
+
+    .starry-input-controls {
+        background: var(--starry-form-bgcolor-focus);
+    }
+}
+
+.starry-input-view-readonly {
+    cursor: default;
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+
+    input {
+        user-select: auto;
+    }
+}
+
+.starry-input-view-readonly:hover {
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
+
+.starry-input-view-readonly:active {
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
+
+.starry-input-view-readonly:focus-within {
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
+
+.starry-input-view-disabled {
+    cursor: no-drop;
+    opacity: var(--starry-disabled-opacity);
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
+
+.starry-input-view-disabled:hover {
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
+
+.starry-input-view-disabled:active {
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
+
+.starry-input-view-disabled:focus-within {
+    border: var(--starry-form-border-width) rgba(0, 0, 0, 0) solid;
+    background-color: var(--starry-form-bgcolor);
+}
