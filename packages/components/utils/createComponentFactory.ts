@@ -1,10 +1,10 @@
 import { createComputed, batch, mergeProps, splitProps } from "solid-js";
 import { createMutable } from "solid-js/store";
-
+import type { CommonProps } from "../type";
 import composeClasses from "./composeClasses";
 
 export function createComponentFactory<
-  C,
+  C extends CommonProps,
   S extends Record<string, (string | false | undefined)[]>
 >(options: {
   props: C;
@@ -61,11 +61,20 @@ export function createComponentFactory<
       mergeProps(...[...(propDefaults ? [propDefaults] : []), props]) as IProps
     );
   }
+  function useDirectives(props: C) {
+    const directiveList = props.directives || [];
 
+    return function directives(el: HTMLElement) {
+      directiveList.map((directive) => directive(el));
+    };
+  }
+
+  const directives = useDirectives(options.props);
   const { props, allProps, otherProps } = useProps(
     options.props,
     options.propDefaults
   );
+
   const classes = useClasses(props as C);
 
   return {
@@ -73,5 +82,6 @@ export function createComponentFactory<
     props,
     allProps,
     otherProps,
+    directives,
   };
 }
