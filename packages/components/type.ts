@@ -9,9 +9,12 @@ export type DOMElements = keyof JSX.IntrinsicElements;
  */
 export type ElementType<Props = any> = DOMElements | Component<Props>;
 
+type Directive = (el: HTMLElement) => void;
 export interface CommonProps {
   class?: string;
   onClick?: (event: Event) => void;
+  style?: JSX.CSSProperties | string;
+  directives?: Directive[];
 }
 
 export type StarrySizeType = "small" | "medium" | "large";
