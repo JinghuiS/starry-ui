@@ -1,0 +1,289 @@
+:root {
+    // 全局
+    --starry-white-text-color: rgba(255, 255, 255, 0.9);
+    --starry-black-color: #000;
+    --starry-black-text-color: rgba(0, 0, 0, 0.9);
+    --starry-disabled-opacity: 0.5;
+    // 背景
+    --starry-bgcolor-0: rgb(255, 255, 255);
+    --starry-bgcolor-1: rgb(250, 250, 250);
+    --starry-bgcolor-2: rgb(245, 245, 245);
+    --starry-bgcolor-3: rgb(235, 235, 235);
+    --starry-bgcolor-4: rgb(225, 225, 225);
+    --starry-bgcolor-5: rgb(215, 215, 215);
+    --starry-bgcolor-6: rgb(205, 205, 205);
+    --starry-bgcolor-7: rgb(195, 195, 195);
+    --starry-bgcolor-8: rgb(185, 185, 185);
+    --starry-bgcolor-9: rgb(175, 175, 175);
+    // 背景反相
+    --starry-bgcolor-0-invert: rgb(20, 20, 20);
+    --starry-bgcolor-1-invert: rgb(30, 30, 30);
+    --starry-bgcolor-2-invert: rgb(40, 40, 40);
+    --starry-bgcolor-3-invert: rgb(50, 50, 50);
+    --starry-bgcolor-4-invert: rgb(60, 60, 60);
+    --starry-bgcolor-5-invert: rgb(70, 70, 70);
+    --starry-bgcolor-6-invert: rgb(80, 80, 80);
+    --starry-bgcolor-7-invert: rgb(90, 90, 90);
+    --starry-bgcolor-8-invert: rgb(110, 110, 110);
+    --starry-bgcolor-9-invert: rgb(120, 120, 120);
+    // 字体颜色
+    --starry-text-color-0: rgb(20, 20, 20);
+    --starry-text-color-1: rgb(30, 30, 30);
+    --starry-text-color-2: rgb(50, 50, 50);
+    --starry-text-color-3: rgb(70, 70, 70);
+    --starry-text-color-4: rgb(90, 90, 90);
+    --starry-text-color-5: rgb(110, 110, 110);
+    --starry-text-color-6: rgb(130, 130, 130);
+    --starry-text-color-7: rgb(150, 150, 150);
+    --starry-text-color-8: rgb(170, 170, 170);
+    --starry-text-color-9: rgb(190, 190, 190);
+    // 反相
+    --starry-text-color-0-invert: rgb(255, 255, 255);
+    --starry-text-color-1-invert: rgb(235, 235, 235);
+    --starry-text-color-2-invert: rgb(215, 215, 215);
+    --starry-text-color-3-invert: rgb(195, 195, 195);
+    --starry-text-color-4-invert: rgb(175, 175, 175);
+    --starry-text-color-5-invert: rgb(155, 155, 155);
+    --starry-text-color-6-invert: rgb(135, 135, 135);
+    --starry-text-color-7-invert: rgb(115, 115, 115);
+    --starry-text-color-8-invert: rgb(95, 95, 95);
+    --starry-text-color-9-invert: rgb(75, 75, 75);
+    // 阴影
+    --starry-box-shadow: 0px 1px 2px rgba(61, 109, 178, 0.15),
+        0px 4px 16px rgba(61, 109, 179, 0.2);
+    // 圆角
+    --starry-border-radius: 6px;
+    // 边界
+    --starry-border-0: 1px solid rgb(245, 245, 245);
+    --starry-border-1: 1px solid rgb(235, 235, 235);
+    --starry-border-2: 1px solid rgb(225, 225, 225);
+    --starry-border-3: 1px solid rgb(215, 215, 215);
+    --starry-border-4: 1px solid rgb(205, 205, 205);
+    --starry-border-5: 1px solid rgb(195, 195, 195);
+    --starry-border-6: 1px solid rgb(185, 185, 185);
+    --starry-border-7: 1px solid rgb(175, 175, 175);
+    --starry-border-8: 1px solid rgb(165, 165, 165);
+    --starry-border-9: 1px solid rgb(155, 155, 155);
+    // 主题色
+    --starry-primary-color: rgb(59, 121, 208);
+    --starry-primary-color-dark: rgb(38, 84, 148);
+    --starry-primary-color-light: rgb(217, 233, 255);
+    --starry-primary-color-light2: rgb(190, 211, 239);
+    --starry-primary-text-color: rgb(47, 88, 146);
+    --starry-primary-color-hover: rgb(54, 109, 187);
+    --starry-primary-color-active: rgb(42, 94, 149);
+    //
+    --starry-normal-color: rgb(240, 240, 240);
+    --starry-normal-color-dark: rgb(105, 104, 104);
+    --starry-normal-color-light: rgb(234, 234, 234);
+    --starry-normal-color-light2: rgb(216, 214, 214);
+    --starry-normal-text-color: rgb(66, 66, 66);
+    --starry-normal-color-hover: rgb(235, 235, 235);
+    --starry-normal-color-active: rgb(217, 217, 217);
+    // success
+    --starry-success-color: rgb(49, 196, 141);
+    --starry-success-color-dark: rgb(35, 153, 110);
+    --starry-success-color-light: rgb(229, 246, 235);
+    --starry-success-color-light2: rgb(199, 230, 204);
+    --starry-success-text-color: rgb(32, 161, 113);
+    --starry-success-color-hover: rgb(40, 176, 126);
+    --starry-success-color-active: rgb(28, 157, 110);
+    // info
+    --starry-info-color: rgb(59, 121, 208);
+    --starry-info-color-dark: rgb(33, 83, 153);
+    --starry-info-color-light: rgb(217, 233, 255);
+    --starry-info-color-light2: rgb(190, 211, 239);
+    --starry-info-text-color: rgb(47, 88, 146);
+    --starry-info-color-hover: rgb(54, 109, 187);
+    --starry-info-color-active: rgb(42, 94, 149);
+    // warning
+    --starry-warning-color: rgb(227, 179, 68);
+    --starry-warning-color-dark: rgb(186, 132, 7);
+    --starry-warning-color-light: rgb(255, 240, 209);
+    --starry-warning-color-light2: rgb(236, 218, 177);
+    --starry-warning-text-color: rgb(187, 128, 9);
+    --starry-warning-color-hover: rgb(222, 161, 17);
+    --starry-warning-color-active: rgb(187, 133, 7);
+    // error
+    --starry-error-color: rgb(249, 128, 128);
+    --starry-error-color-dark: rgb(197, 88, 88);
+    --starry-error-color-light: rgb(255, 234, 234);
+    --starry-error-color-light2: rgb(236, 208, 208);
+    --starry-error-text-color: #d10000;
+    --starry-error-color-hover: rgb(231, 113, 113);
+    --starry-error-color-active: rgb(204, 92, 92);
+    // 标题
+    --starry-title-bold: 800;
+    // 表单样式
+    --starry-form-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    --starry-form-border-width: 1.5px;
+    --starry-form-transition: all 0.2s ease;
+    --starry-form-border-color: rgb(245, 245, 245);
+    --starry-form-border-color-hover: rgb(228, 228, 228);
+    --starry-form-border-color-active: rgba(0, 0, 0, 0.22);
+    --starry-form-border-color-focus: var(--starry-primary-color);
+    // 表单尺寸
+    --starry-form-input-padding-small: 2px 8px;
+    --starry-form-input-padding-medium: 4px 10px;
+    --starry-form-input-padding-large: 6px 12px;
+    --starry-form-item-height-small: 26px;
+    --starry-form-item-height-medium: 30px;
+    --starry-form-item-height-large: 34px;
+    --starry-form-input-line-height-small: 22px;
+    --starry-form-input-line-height-medium: 24px;
+    --starry-form-input-line-height-large: 26px;
+    --starry-form-font-size-small: 13px;
+    --starry-form-font-size-medium: 14px;
+    --starry-form-font-size-large: 16px;
+    // 表单背景
+    --starry-form-bgcolor: rgb(245, 245, 245);
+    --starry-form-bgcolor-hover: rgb(228, 228, 228);
+    --starry-form-bgcolor-active: rgb(215, 215, 215);
+    --starry-form-bgcolor-focus: rgb(255, 255, 255);
+    // 表单背景2
+    --starry-form-bgcolor-high: rgba(6, 57, 88, 0.1);
+    --starry-form-bgcolor-high-hover: rgba(6, 57, 88, 0.16);
+    --starry-form-bgcolor-high-active: rgba(6, 57, 88, 0.2);
+    // dialog / modal
+    --starry-modal-bgcolor: rgb(0, 0, 0, 0.5);
+    // loading
+    --starry-loading-bgcolor: rgb(0, 0, 0, 0.23);
+    // povpoer
+    --starry-povpoer-bgcolor: rgba(255, 255, 255);
+    // message
+    --starry-message-bgcolor: rgba(255, 255, 255, 1);
+    // notification
+    --starry-notification-bgcolor: rgba(255, 255, 255, 1);
+}
+
+.starry-dark {
+    // 全局
+    // 背景
+    --starry-bgcolor-0: rgb(20, 20, 20);
+    --starry-bgcolor-1: rgb(30, 30, 30);
+    --starry-bgcolor-2: rgb(40, 40, 40);
+    --starry-bgcolor-3: rgb(50, 50, 50);
+    --starry-bgcolor-4: rgb(60, 60, 60);
+    --starry-bgcolor-5: rgb(70, 70, 70);
+    --starry-bgcolor-6: rgb(80, 80, 80);
+    --starry-bgcolor-7: rgb(90, 90, 90);
+    --starry-bgcolor-8: rgb(100, 100, 100);
+    --starry-bgcolor-9: rgb(110, 110, 110);
+    // 背景反相
+    --starry-bgcolor-0-invert: rgb(255, 255, 255);
+    --starry-bgcolor-1-invert: rgb(245, 245, 245);
+    --starry-bgcolor-2-invert: rgb(235, 235, 235);
+    --starry-bgcolor-3-invert: rgb(225, 225, 225);
+    --starry-bgcolor-4-invert: rgb(215, 215, 215);
+    --starry-bgcolor-5-invert: rgb(205, 205, 205);
+    --starry-bgcolor-6-invert: rgb(195, 195, 195);
+    --starry-bgcolor-7-invert: rgb(185, 185, 185);
+    --starry-bgcolor-8-invert: rgb(175, 175, 175);
+    --starry-bgcolor-9-invert: rgb(165, 165, 165);
+    // 反相
+    --starry-text-color-0: rgb(255, 255, 255);
+    --starry-text-color-1: rgb(235, 235, 235);
+    --starry-text-color-2: rgb(215, 215, 215);
+    --starry-text-color-3: rgb(195, 195, 195);
+    --starry-text-color-4: rgb(175, 175, 175);
+    --starry-text-color-5: rgb(155, 155, 155);
+    --starry-text-color-6: rgb(135, 135, 135);
+    --starry-text-color-7: rgb(115, 115, 115);
+    --starry-text-color-8: rgb(95, 95, 95);
+    --starry-text-color-9: rgb(75, 75, 75);
+    // 字体颜色
+    --starry-text-color-0-invert: rgb(20, 20, 20);
+    --starry-text-color-1-invert: rgb(30, 30, 30);
+    --starry-text-color-2-invert: rgb(50, 50, 50);
+    --starry-text-color-3-invert: rgb(70, 70, 70);
+    --starry-text-color-4-invert: rgb(90, 90, 90);
+    --starry-text-color-5-invert: rgb(110, 110, 110);
+    --starry-text-color-6-invert: rgb(130, 130, 130);
+    --starry-text-color-7-invert: rgb(150, 150, 150);
+    --starry-text-color-8-invert: rgb(170, 170, 170);
+    --starry-text-color-9-invert: rgb(190, 190, 190);
+    // 边界
+    --starry-border-0: 1px solid rgb(30, 30, 30);
+    --starry-border-1: 1px solid rgb(40, 40, 40);
+    --starry-border-2: 1px solid rgb(50, 50, 50);
+    --starry-border-3: 1px solid rgb(60, 60, 60);
+    --starry-border-4: 1px solid rgb(70, 70, 70);
+    --starry-border-5: 1px solid rgb(80, 80, 80);
+    --starry-border-6: 1px solid rgb(90, 90, 90);
+    --starry-border-7: 1px solid rgb(100, 100, 100);
+    --starry-border-8: 1px solid rgb(110, 110, 110);
+    --starry-border-9: 1px solid rgb(120, 120, 120);
+    // 阴影
+    --starry-box-shadow: 0px 3px 15px rgba(243, 243, 243, 0.08);
+    // 主题色
+    --starry-primary-color: rgb(50, 86, 136);
+    --starry-primary-color-dark: rgb(75, 126, 198);
+    --starry-primary-color-light: #273141;
+    --starry-primary-color-light2: #374c6c;
+    --starry-primary-color-hover: rgb(52, 91, 146);
+    --starry-primary-color-active: rgb(26, 58, 92);
+    // success
+    --starry-success-color: rgb(32, 125, 91);
+    --starry-success-color-dark: rgb(35, 153, 110);
+    --starry-success-color-light: #2a3d2e;
+    --starry-success-color-light2: #3d5d42;
+    --starry-success-color-hover: rgb(34, 134, 97);
+    --starry-success-color-active: rgb(27, 109, 79);
+    // info
+    --starry-info-color: rgb(50, 86, 136);
+    --starry-info-color-dark: rgb(75, 126, 198);
+    --starry-info-color-light: #273141;
+    --starry-info-color-light2: #374c6c;
+    --starry-info-text-color: rgba(173, 207, 255, 0.8);
+    --starry-info-color-hover: rgb(52, 91, 146);
+    --starry-info-color-active: rgb(26, 58, 92);
+    // error
+    --starry-error-color: rgb(161, 74, 74);
+    --starry-error-color-dark: rgb(197, 88, 88);
+    --starry-error-color-light: #432e2e;
+    --starry-error-color-light2: #614140;
+    --starry-error-text-color: rgb(255, 127, 127, 0.8);
+    --starry-error-color-hover: rgb(175, 80, 80);
+    --starry-error-color-active: rgb(123, 55, 55);
+    // warning
+    --starry-warning-color: rgb(149, 124, 64);
+    --starry-warning-color-dark: rgb(186, 132, 7);
+    --starry-warning-color-light: #372b15;
+    --starry-warning-color-light2: #543c15;
+    --starry-warning-text-color: rgb(255, 224, 100, 0.8);
+    --starry-warning-color-hover: rgb(159, 132, 69);
+    --starry-warning-color-active: rgb(126, 104, 53);
+    // normal
+    --starry-normal-color: rgb(84, 81, 81);
+    --starry-normal-color-dark: rgb(129, 129, 129);
+    --starry-normal-color-light: #2f2f2f;
+    --starry-normal-color-light2: #464646;
+    --starry-normal-text-color: rgb(212, 212, 212, 0.8);
+    --starry-normal-color-hover: rgb(88, 88, 88);
+    --starry-normal-color-active: rgb(75, 75, 75);
+    // 表单样式
+    --starry-form-border-width: 1.5px;
+    --starry-form-border-color: rgb(35, 35, 35);
+    --starry-form-border-color-hover: rgb(40, 40, 40);
+    --starry-form-border-color-active: rgba(96, 96, 96, 0.8);
+    --starry-form-border-color-focus: var(--starry-primary-color);
+    // 表单背景
+    --starry-form-bgcolor: rgb(35, 35, 35);
+    --starry-form-bgcolor-hover: rgb(40, 40, 40);
+    --starry-form-bgcolor-active: rgb(32, 32, 32);
+    --starry-form-bgcolor-focus: rgb(45, 45, 45);
+    // 表单背景2
+    --starry-form-bgcolor-high: rgba(71, 71, 71, 0.5);
+    --starry-form-bgcolor-high-hover: rgba(71, 71, 71, 0.801);
+    --starry-form-bgcolor-high-active: rgba(71, 71, 71, 1);
+    // dialog / modal
+    --starry-modal-bgcolor: rgba(175, 175, 175, 0.05);
+    // loading
+    --starry-loading-bgcolor: rgba(0, 0, 0, 0.5);
+    // povpoer
+    --starry-povpoer-bgcolor: #333;
+    // message
+    --starry-message-bgcolor: rgb(59, 59, 59);
+    // notification
+    --starry-notification-bgcolor: rgb(50, 50, 50);
+}
