@@ -2,7 +2,7 @@ import { Component, createSignal } from "solid-js";
 
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import { Button } from "@starry-ui/components";
+import { Button, Tag } from "@starry-ui/components";
 
 const App: Component = () => {
   const [loading, setLoading] = createSignal(false);
@@ -26,9 +26,21 @@ const App: Component = () => {
           onClick={() => {
             setLoading(true);
           }}
+
         >
           1
         </Button>
+        <Tag colorType="error" size="large"
+          round
+          closable
+          onClick={() => {
+            console.log(22);
+          }}
+          onClose={() => {
+            console.log(222233);
+
+          }}
+        >Tag</Tag>
       </header>
     </div>
   );
