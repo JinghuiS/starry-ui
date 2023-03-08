@@ -17,6 +17,7 @@
   "dependencies": {
     "solid-js": "^1.6.10",
     "@starry-ui/components": "workspace:*",
-    "@starry-ui/theme": "workspace:*"
+    "@starry-ui/theme": "workspace:*",
+    "@starry-ui/directives": "workspace:*"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "name": "@starry-ui/directives",
+  "version": "0.0.1",
+  "description": "base directives",
+  "main": "index.ts",
+  "module": "index.ts"
+}
