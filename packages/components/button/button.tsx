@@ -4,9 +4,9 @@ import { createComponentFactory } from "../utils/createComponentFactory";
 import { StarryButtonProps } from "./button-type";
 
 export function Button(props: FlowProps<StarryButtonProps>) {
-  const { classes, otherProps } = createComponentFactory({
+  const { classes, otherProps, props: ButtonProps } = createComponentFactory({
     name: "button",
-    selfPropNames: ["colorType", "loading", "size", "disabled"],
+    selfPropNames: ["colorType", "loading", "size", "disabled", 'round'],
     props: props,
     propDefaults: {
       size: "medium",
