@@ -1,6 +1,5 @@
 import { onMount } from "solid-js";
 import tippy, { Instance, Props } from "tippy.js";
-import "tippy.js/dist/tippy.css";
 
 declare module "solid-js" {
   namespace JSX {
