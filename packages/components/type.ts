@@ -9,7 +9,7 @@ export type DOMElements = keyof JSX.IntrinsicElements;
  */
 export type ElementType<Props = any> = DOMElements | Component<Props>;
 
-type Directive = (el: HTMLElement) => void;
+type Directive = (el: Element) => void;
 export interface CommonProps {
   class?: string;
   onClick?: (event: Event) => void;
