@@ -1,2 +1,5 @@
 @use './base';
 @use './components';
+@import "tippy.js/dist/tippy.css";
+@import "tippy.js/animations/shift-away-subtle.css";
+@import "tippy.js/themes/light.css";
