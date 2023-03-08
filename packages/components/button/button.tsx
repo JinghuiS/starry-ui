@@ -7,25 +7,26 @@ export function Button(props: FlowProps<StarryButtonProps>) {
   const {
     classes,
     otherProps,
-    props: ButtonProps
+    props: ButtonProps,
+    directives,
   } = createComponentFactory({
     name: "button",
     selfPropNames: ["colorType", "loading", "size", "disabled", "round"],
     props: props,
     propDefaults: {
       size: "medium",
-      colorType: "primary"
+      colorType: "primary",
     },
-    classes: state => ({
+    classes: (state) => ({
       type: [state.colorType],
       size: [state.size],
       loading: [state.loading && "loading"],
       loadingIcon: [
         state.loading && "loading-icon",
-        state.loading && !state.disabled && "loading-icon-show"
+        state.loading && !state.disabled && "loading-icon-show",
       ],
-      round: [state.round && "round"]
-    })
+      round: [state.round && "round"],
+    }),
   });
 
   const handleClick = (
@@ -41,6 +42,7 @@ export function Button(props: FlowProps<StarryButtonProps>) {
 
   return (
     <button
+      ref={directives}
       class={clsx(
         classes.base,
         classes.size,

@@ -15,11 +15,23 @@ const App: Component = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Button
+          directives={[
+            (el) => {
+              tooltip(el, () => ({
+                content: "111",
+                placement: "bottom",
+              }));
+            },
+          ]}
+        >
+          1
+        </Button>
         <div
           use:tooltip={{
             content: "111",
             placement: "bottom",
-            trigger: "click"
+            trigger: "click",
           }}
         >
           11

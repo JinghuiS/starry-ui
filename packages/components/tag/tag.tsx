@@ -7,7 +7,8 @@ export function Tag(props: FlowProps<StarryTagProps>) {
   const {
     classes,
     otherProps,
-    props: TagProps
+    props: TagProps,
+    directives,
   } = createComponentFactory({
     name: "tag",
     selfPropNames: [
@@ -20,27 +21,27 @@ export function Tag(props: FlowProps<StarryTagProps>) {
       "maxWidth",
       "round",
       "left",
-      "right"
+      "right",
     ],
     props: props,
     propDefaults: {
       size: "medium",
-      colorType: "primary"
+      colorType: "primary",
     },
-    classes: state => ({
+    classes: (state) => ({
       type: [state.colorType],
       size: [state.size],
       closableIcon: [
         state.closable && "closable-icon",
-        state.closable && !state.disabled && "closable-icon-show"
+        state.closable && !state.disabled && "closable-icon-show",
       ],
       round: [state.round && "round"],
       bold: [state.bold && "bold"],
       disabled: [state.disabled && "disabled"],
       left: [state.left ? "left" : false],
       right: [state.right ? "right" : false],
-      value: ["value"]
-    })
+      value: ["value"],
+    }),
   });
 
   const handleClick = (
@@ -64,6 +65,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
   };
   return (
     <div
+      ref={directives}
       class={clsx(
         classes.base,
         classes.size,
