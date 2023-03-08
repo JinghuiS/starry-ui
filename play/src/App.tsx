@@ -8,10 +8,14 @@ import { tooltip, starryLoading } from "@starry-ui/directives";
 const App: Component = () => {
   const [loading, setLoading] = createSignal(false);
 
+  const [v, setV] = createSignal("111");
+
   return (
     <div class={styles.App}>
+      <div use:tooltip={{ content: v }}>112121</div>
       <Button
         onClick={() => {
+          setV("点了");
           setLoading(!loading());
         }}
       >

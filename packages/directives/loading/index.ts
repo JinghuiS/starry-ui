@@ -16,8 +16,6 @@ declare module "solid-js" {
 function starryLoading(el: Element, content: () => Partial<Props>) {
   let loadingBox: HTMLElement;
   onMount(() => {
-    console.log(111);
-
     el.classList.add("starry-loading");
     loadingBox = document.createElement("div");
     loadingBox.classList.add("starry-loading-box");
