@@ -4,6 +4,7 @@ import tippy, { type Instance, type Props } from "tippy.js";
 
 interface TooltipProps extends Partial<Omit<Props, "content">> {
   content: JSX.Element;
+  readonly maxWidth: number;
 }
 
 declare module "solid-js" {
@@ -41,10 +42,10 @@ function tooltip(el: Element, props: () => TooltipProps) {
       },
     });
     instance.popper.children[0].setAttribute("data-starry", "tooltip");
-  });
-  onCleanup(() => {
-    //@ts-ignore
-    instance = null;
+    onCleanup(() => {
+      //@ts-ignore
+      instance = null;
+    });
   });
 }
 
