@@ -12,6 +12,7 @@ export function CheckSwitch(props: StarryCheckSwitchProps) {
     props: CheckSwitchProps,
     classes,
     otherProps,
+    directives,
   } = createComponentFactory({
     name: "switch",
     props: props,
@@ -45,6 +46,7 @@ export function CheckSwitch(props: StarryCheckSwitchProps) {
       onClick={handleClick}
     >
       <input
+        ref={directives}
         style={{
           display: "none",
         }}
