@@ -53,7 +53,9 @@ export function createComponentFactory<
 
     type _ClassesType = typeof classes;
 
-    return classes as Readonly<_ClassesType & { base: string }>;
+    return classes as Readonly<
+      _ClassesType & { base: string; baseView: string }
+    >;
   }
 
   function useProps(props: IProps, propDefaults?: IProps) {

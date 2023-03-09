@@ -6,6 +6,7 @@ export default function composeClasses<ClassKey extends string>(
 ): Record<ClassKey, string> {
   const output: Record<ClassKey, string> = {
     base: `starry-${name} ${classes} `,
+    baseView: `starry-${name}-view`,
   } as any;
 
   Object.keys(slots).forEach(
