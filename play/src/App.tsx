@@ -6,6 +6,7 @@ import {
   Button,
   CheckSwitch,
   Input,
+  Popover,
   Tag,
   Textarea,
 } from "@starry-ui/components";
@@ -19,17 +20,26 @@ const App: Component = () => {
   return (
     <div class={styles.App}>
       <div use:tooltip={{ content: v }}>112121</div>
-      <CheckSwitch />
-      <Button
-        onClick={() => {
-          setV("点了");
-          setLoading(!loading());
-        }}
+
+      <Popover
+        popoverBody={() => (
+          <div>
+            <Input showCount maxLength={5} />
+            <CheckSwitch />
+          </div>
+        )}
       >
-        1
-      </Button>
+        <Button
+          onClick={() => {
+            setV("点了");
+            setLoading(!loading());
+          }}
+        >
+          1
+        </Button>
+      </Popover>
+
       <div use:starryLoading={{ isShow: loading() }} style={{ width: "300px" }}>
-        <Input showCount maxLength={5} />
         <Textarea showCount maxLength={5} style={{ "margin-top": "20px" }} />
       </div>
     </div>

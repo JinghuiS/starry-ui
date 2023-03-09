@@ -1,0 +1,9 @@
+.starry-popover {
+    display: inline-block;
+
+    .starry-popover-trigger {
+        >div {
+            font-size: 14px;
+        }
+    }
+}
