@@ -12,7 +12,7 @@ export type ElementType<Props = any> = DOMElements | Component<Props>;
 type Directive = (el: Element) => void;
 export interface CommonProps {
   class?: string;
-  onClick?: (event: Event) => void;
+  onClick?: (event: any) => void;
   style?: JSX.CSSProperties | string;
   directives?: Directive[];
 }
