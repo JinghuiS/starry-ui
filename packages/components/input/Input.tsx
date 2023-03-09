@@ -6,6 +6,11 @@ import { getTextLength } from "./hook";
 import type { StarryInputProps } from "./input-type";
 
 export function Input(props: StarryInputProps) {
+  const inputValue: () => string = () =>
+    (props.value != null ? props.value : "") as string;
+
+  const [value, setV] = createSignal(inputValue());
+
   const {
     classes,
     directives,
@@ -46,8 +51,8 @@ export function Input(props: StarryInputProps) {
 
       controls: ["controls"],
       controlsShow: [
-        (state.value && state.showPassword) ||
-        (state.value && state.clearable) ||
+        (value() && state.showPassword) ||
+        (value() && state.clearable) ||
         (state.showCount && !state.clearable && !state.showPassword) ||
         (state.showCount && state.maxLength)
           ? "controls-show"
@@ -57,10 +62,6 @@ export function Input(props: StarryInputProps) {
       showCount: ["show-count"],
     }),
   });
-  const inputValue: () => string = () =>
-    (InputProps.value != null ? InputProps.value : "") as string;
-
-  const [value, setV] = createSignal(inputValue());
 
   const getCheckNumStr = () => {
     if (InputProps.showCount && InputProps.maxLength) {

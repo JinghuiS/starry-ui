@@ -6,6 +6,11 @@ import { getTextLength } from "./hook";
 import type { StarryTextareaProps } from "./input-type";
 
 export function Textarea(props: StarryTextareaProps) {
+  const inputValue: () => string = () =>
+    (props.value != null ? props.value : "") as string;
+
+  const [value, setV] = createSignal(inputValue());
+
   const {
     classes,
     directives,
@@ -48,8 +53,8 @@ export function Textarea(props: StarryTextareaProps) {
 
       controls: ["controls"],
       controlsShow: [
-        (state.value && state.showPassword) ||
-        (state.value && state.clearable) ||
+        (value() && state.showPassword) ||
+        (value() && state.clearable) ||
         (state.showCount && !state.clearable && !state.showPassword) ||
         (state.showCount && state.maxLength)
           ? "controls-show"
@@ -60,10 +65,6 @@ export function Textarea(props: StarryTextareaProps) {
       showCount: ["show-count"],
     }),
   });
-  const inputValue: () => string = () =>
-    (InputProps.value != null ? InputProps.value : "") as string;
-
-  const [value, setV] = createSignal(inputValue());
 
   const getCheckNumStr = () => {
     if (InputProps.showCount && InputProps.maxLength) {
