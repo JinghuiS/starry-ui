@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 import { createComponentFactory } from "../utils/createComponentFactory";
 import type { StarryCheckSwitchProps } from "./check-switch-type";
 
@@ -8,6 +8,9 @@ export function CheckSwitch(props: StarryCheckSwitchProps) {
     (props.value != null ? props.value : false) as boolean;
 
   const [value, setValue] = createSignal(CheckSwitchValue());
+  createEffect(() => {
+    setValue(CheckSwitchValue());
+  });
   const {
     props: CheckSwitchProps,
     classes,

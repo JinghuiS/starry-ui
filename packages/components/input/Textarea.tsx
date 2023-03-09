@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 import { Show } from "solid-js";
 import { createComponentFactory } from "../utils/createComponentFactory";
 import { getTextLength } from "./hook";
@@ -10,6 +10,10 @@ export function Textarea(props: StarryTextareaProps) {
     (props.value != null ? props.value : "") as string;
 
   const [value, setV] = createSignal(inputValue());
+
+  createEffect(() => {
+    setV(inputValue());
+  });
 
   const {
     classes,
