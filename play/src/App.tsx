@@ -6,6 +6,7 @@ import {
   Button,
   CheckSwitch,
   Input,
+  Modal,
   Popover,
   Tag,
   Textarea,
@@ -20,15 +21,26 @@ const App: Component = () => {
   return (
     <div class={styles.App}>
       <div use:tooltip={{ content: v }}>112121</div>
-
-      <Popover
-        popoverBody={() => (
-          <div>
-            <Input showCount maxLength={5} />
-            <CheckSwitch />
-          </div>
-        )}
+      <div>
+        <Input
+          value={v()}
+          onInput={(v) => {
+            setV(v.currentTarget.value);
+          }}
+          showCount
+          maxLength={5}
+        />
+      </div>
+      <Modal
+        onClose={() => {
+          setLoading(false);
+        }}
+        visible={loading()}
       >
+        <div>12121</div>
+      </Modal>
+
+      <Popover popoverBody={() => <div>测试k</div>}>
         <Button
           onClick={() => {
             setV("点了");
@@ -40,6 +52,7 @@ const App: Component = () => {
       </Popover>
 
       <div use:starryLoading={{ isShow: loading() }} style={{ width: "300px" }}>
+        <CheckSwitch />
         <Textarea showCount maxLength={5} style={{ "margin-top": "20px" }} />
       </div>
     </div>

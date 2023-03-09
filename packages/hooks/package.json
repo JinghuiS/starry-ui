@@ -1,0 +1,10 @@
+{
+  "name": "@starry-ui/hooks",
+  "version": "0.0.1",
+  "description": "all hooks are settled here",
+  "main": "index.ts",
+  "module": "index.ts",
+  "peerDependencies": {
+    "solid-js": "^1.6.10"
+  }
+}
