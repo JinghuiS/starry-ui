@@ -2,7 +2,13 @@ import { type Component, createSignal } from "solid-js";
 
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import { Button, Input, Tag, Textarea } from "@starry-ui/components";
+import {
+  Button,
+  CheckSwitch,
+  Input,
+  Tag,
+  Textarea,
+} from "@starry-ui/components";
 import { tooltip, starryLoading } from "@starry-ui/directives";
 
 const App: Component = () => {
@@ -13,6 +19,7 @@ const App: Component = () => {
   return (
     <div class={styles.App}>
       <div use:tooltip={{ content: v }}>112121</div>
+      <CheckSwitch />
       <Button
         onClick={() => {
           setV("点了");
