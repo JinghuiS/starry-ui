@@ -20,9 +20,15 @@ importers:
       vite-plugin-solid: 2.6.1_solid-js@1.6.12+vite@4.1.4
 
   packages/components:
-    specifiers: {}
+    specifiers:
+      '@starry-ui/hooks': workspace:*
+    dependencies:
+      '@starry-ui/hooks': link:../hooks
 
   packages/directives:
+    specifiers: {}
+
+  packages/hooks:
     specifiers: {}
 
   packages/theme:
@@ -32,6 +38,7 @@ importers:
     specifiers:
       '@starry-ui/components': workspace:*
       '@starry-ui/directives': workspace:*
+      '@starry-ui/hooks': workspace:*
       '@starry-ui/theme': workspace:*
       sass: ^1.52.1
       solid-js: ^1.6.10
@@ -40,6 +47,7 @@ importers:
     dependencies:
       '@starry-ui/components': link:../packages/components
       '@starry-ui/directives': link:../packages/directives
+      '@starry-ui/hooks': link:../packages/hooks
       '@starry-ui/theme': link:../packages/theme
       solid-js: 1.6.12
     devDependencies:

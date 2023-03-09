@@ -6,5 +6,8 @@
   "module": "index.ts",
   "peerDependencies": {
     "solid-js": "^1.6.10"
+  },
+  "dependencies": {
+    "@starry-ui/hooks": "workspace:*"
   }
 }
