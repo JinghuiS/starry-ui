@@ -10,6 +10,7 @@ import {
   Popover,
   Tag,
   Textarea,
+  Title,
 } from "@starry-ui/components";
 import { tooltip, starryLoading } from "@starry-ui/directives";
 
@@ -50,6 +51,10 @@ const App: Component = () => {
           1
         </Button>
       </Popover>
+
+      <Button colorType={"success"}>ces</Button>
+
+      <Title bold>121211212</Title>
 
       <div use:starryLoading={{ isShow: loading() }} style={{ width: "300px" }}>
         <CheckSwitch />
