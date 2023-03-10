@@ -9,7 +9,7 @@
         "type-check": "tsc --project tsconfig.json --pretty --noEmit",
         "lint": "prettier --check . --ignore-path .gitignore && eslint .",
         "format": "prettier --ignore-path .gitignore --write .",
-        "prepare": "husky install",
+        "prepare": "husky install && chmod ug+x .husky/*",
         "format-check": "prettier -- --list-different",
         "commit": "git-cz"
     },
@@ -17,8 +17,10 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
+        "@commitlint/config-conventional": "^17.4.4",
         "@typescript-eslint/eslint-plugin": "^5.54.1",
         "@typescript-eslint/parser": "^5.54.1",
+        "commitlint": "^17.4.4",
         "eslint": "^8.35.0",
         "eslint-config-prettier": "^8.7.0",
         "eslint-plugin-import": "^2.27.5",
@@ -38,11 +40,12 @@
         "tippy.js": "^6.3.7"
     },
     "lint-staged": {
-        "*.+(js|ts|tsx)": [
-            "pnpm run lint"
+        "*.{md,json}": [
+            "prettier --write"
         ],
-        "*.+(js|json|ts|tsx)": [
-            "pnpm run format"
+        "*.ts?(x)": [
+            "eslint",
+            "prettier --write"
         ]
     }
 }
