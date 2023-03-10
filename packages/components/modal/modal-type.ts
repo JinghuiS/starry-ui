@@ -1,5 +1,5 @@
+import { CommonProps } from "@starry-ui/types";
 import { JSX } from "solid-js";
-import { CommonProps } from "../type";
 
 export interface StarryModalProps extends CommonProps {
   visible: boolean;
@@ -9,4 +9,5 @@ export interface StarryModalProps extends CommonProps {
   onMaskClick?: () => void;
   maskClose?: boolean;
   onClose?: () => void;
+  destroyOnClose?: boolean;
 }

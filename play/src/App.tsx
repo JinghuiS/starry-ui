@@ -66,7 +66,11 @@ const App: Component = () => {
       <Title bold>121211212</Title>
 
       <div use:starryLoading={{ isShow: loading() }} style={{ width: "300px" }}>
-        <CheckSwitch />
+        <CheckSwitch
+          ref={(e) => {
+            console.log(e);
+          }}
+        />
         <Textarea showCount maxLength={5} style={{ "margin-top": "20px" }} />
       </div>
       <Radio label="测试" iconable />

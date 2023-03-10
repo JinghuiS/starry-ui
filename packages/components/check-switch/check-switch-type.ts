@@ -1,5 +1,5 @@
+import { CommonProps } from "@starry-ui/types";
 import { JSX } from "solid-js";
-import { CommonProps } from "../type";
 
 interface StarryCheckSwitchOptions extends CommonProps {
   round?: boolean;

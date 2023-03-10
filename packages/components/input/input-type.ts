@@ -1,5 +1,5 @@
+import { CommonProps, StarrySizeType } from "@starry-ui/types";
 import { JSX } from "solid-js";
-import { CommonProps, StarrySizeType } from "../type";
 
 export type StarryInputType = "input" | "textarea";
 

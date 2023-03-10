@@ -1,6 +1,6 @@
+import { CommonProps } from "@starry-ui/types";
 import { JSX } from "solid-js";
 import { Props } from "tippy.js";
-import { CommonProps } from "../type";
 
 export type StarryPopoverEvent = {
   show: () => void;

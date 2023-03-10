@@ -1,5 +1,5 @@
+import { StarryColorType, CommonProps, StarrySizeType } from "@starry-ui/types";
 import { Component, JSX } from "solid-js";
-import { CommonProps, StarryColorType, StarrySizeType } from "../type";
 
 export type StarryButtonTypes = StarryColorType;
 
