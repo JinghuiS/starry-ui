@@ -1,4 +1,4 @@
-import { CommonProps, StarrySizeType } from "../type";
+import { CommonProps, StarrySizeType } from "@starry-ui/types";
 
 export interface StarryRadioOptions extends CommonProps {
   size?: StarrySizeType;
