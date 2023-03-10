@@ -1,8 +1,8 @@
 import { onCleanup } from "solid-js";
 
-export function useDOMCreate(nodeId: string) {
+export function useDOMCreate() {
   const node = document.createElement("div");
-  node.id = nodeId;
+
   document.body.appendChild(node);
   onCleanup(() => {
     if (node) document.body.removeChild(node);
