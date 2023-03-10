@@ -13,7 +13,7 @@ import { SlowShow } from "../SlowShow/SlowShow";
 import { addUnit } from "@starry-ui/utils";
 
 export function Modal(props: FlowProps<StarryModalProps>) {
-  const node = useDOMCreate("starry-modal");
+  const node = useDOMCreate();
   const { props: ModalProps, classes } = createComponentFactory({
     name: "modal",
     props: props,
@@ -23,6 +23,7 @@ export function Modal(props: FlowProps<StarryModalProps>) {
       title: "",
       visible: false,
       maskClose: true,
+      destroyOnClose: false,
     },
     selfPropNames: [
       "width",
@@ -34,6 +35,7 @@ export function Modal(props: FlowProps<StarryModalProps>) {
       "onMaskClick",
       "maskClose",
       "onClose",
+      "destroyOnClose",
     ],
     classes: (state) => ({
       box: ["box"],
@@ -56,6 +58,9 @@ export function Modal(props: FlowProps<StarryModalProps>) {
       setVisible(true);
     }
   });
+  const show = () => {
+    setVisible(true);
+  };
 
   const hide = () => {
     setVisible(false);
@@ -90,7 +95,7 @@ export function Modal(props: FlowProps<StarryModalProps>) {
 
   return (
     <Portal mount={node}>
-      <SlowShow when={visible()}>
+      <SlowShow retainDOM={!ModalProps.destroyOnClose} when={visible()}>
         <div
           onClick={handleMaskClick}
           class={clsx(classes.base)}
