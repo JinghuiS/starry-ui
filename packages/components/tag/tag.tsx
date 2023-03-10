@@ -1,6 +1,7 @@
+import { createComponentFactory } from "@starry-ui/hooks";
 import clsx from "clsx";
 import { type FlowProps, Show } from "solid-js";
-import { createComponentFactory } from "../utils/createComponentFactory";
+
 import type { StarryTagProps } from "./tag-type";
 
 export function Tag(props: FlowProps<StarryTagProps>) {

@@ -1,18 +1,17 @@
+import {
+  createComponentFactory,
+  createControllableSignal,
+} from "@starry-ui/hooks";
 import clsx from "clsx";
-import { createEffect, createSignal } from "solid-js";
+import { createEffect, createMemo, createSignal } from "solid-js";
 import { Show } from "solid-js";
-import { createComponentFactory } from "../utils/createComponentFactory";
+
 import { getTextLength } from "./hook";
 import type { StarryTextareaProps } from "./input-type";
 
 export function Textarea(props: StarryTextareaProps) {
-  const inputValue: () => string = () =>
-    (props.value != null ? props.value : "") as string;
-
-  const [value, setV] = createSignal(inputValue());
-
-  createEffect(() => {
-    setV(inputValue());
+  const [value, setValue] = createControllableSignal({
+    value: () => props.value,
   });
 
   const {
@@ -28,6 +27,7 @@ export function Textarea(props: StarryTextareaProps) {
       align: "left",
       placeholder: "请输入",
       niceCount: false,
+      value: "",
     },
     selfPropNames: [
       "size",
@@ -70,39 +70,40 @@ export function Textarea(props: StarryTextareaProps) {
     }),
   });
 
-  const getCheckNumStr = () => {
+  const getCheckNumStr = createMemo(() => {
+    const v = value() || "";
     if (InputProps.showCount && InputProps.maxLength) {
-      return (
-        getTextLength(value(), InputProps.niceCount) + " / " + props.maxLength
-      );
+      return getTextLength(v, InputProps.niceCount) + " / " + props.maxLength;
     } else if (InputProps.showCount) {
-      return getTextLength(value(), InputProps.niceCount);
+      return getTextLength(v, InputProps.niceCount);
     } else {
       return false;
     }
-  };
+  });
 
   const handleInput: StarryTextareaProps["onInput"] = (event) => {
+    const newEvent = event;
     let v = event.currentTarget.value;
     if (InputProps.maxLength) {
-      setV(v);
+      if (v.length <= InputProps.maxLength) {
+        setValue(v);
+      }
       for (let i = 0; i <= v.length - 1; i++) {
         if (
           getTextLength(v.slice(0, i), InputProps.niceCount) >=
           InputProps.maxLength
         ) {
-          setV(v.slice(0, i));
+          newEvent.currentTarget.value = v.slice(0, i);
+          //@ts-ignore
+          newEvent.target.value = v.slice(0, i);
+          setValue(v.slice(0, i));
         }
       }
     } else {
-      setV(v);
+      setValue(v);
     }
 
     if (!InputProps.onInput) return;
-    let newEvent = event;
-    newEvent.currentTarget.value = value();
-    //@ts-ignore
-    newEvent.target.value = value();
     InputProps.onInput(newEvent);
   };
 

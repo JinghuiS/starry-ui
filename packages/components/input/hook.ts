@@ -2,7 +2,7 @@
  * 获取字符长度
  * @param val
  */
-export const getTextLength = (val: string, niceCount: boolean | undefined) => {
+export const getTextLength = (val: any, niceCount: boolean | undefined) => {
   if (!niceCount) {
     return val.length;
   } else {

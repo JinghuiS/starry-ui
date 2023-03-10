@@ -1,16 +1,21 @@
+import {
+  createComponentFactory,
+  createControllableBooleanSignal,
+} from "@starry-ui/hooks";
 import clsx from "clsx";
 import { createEffect, createSignal } from "solid-js";
-import { createComponentFactory } from "../utils/createComponentFactory";
+
 import type { StarryCheckSwitchProps } from "./check-switch-type";
 
 export function CheckSwitch(props: StarryCheckSwitchProps) {
-  const CheckSwitchValue: () => boolean = () =>
-    (props.value != null ? props.value : false) as boolean;
-
-  const [value, setValue] = createSignal(CheckSwitchValue());
-  createEffect(() => {
-    setValue(CheckSwitchValue());
+  const [value, setValue] = createControllableBooleanSignal({
+    value: () => props.value,
+    onChange: (value) => {
+      if (!props.onClick) return;
+      props.onClick(value);
+    },
   });
+
   const {
     props: CheckSwitchProps,
     classes,
@@ -34,8 +39,6 @@ export function CheckSwitch(props: StarryCheckSwitchProps) {
   const handleClick = () => {
     if (props.disabled || props.loading) return;
     setValue(!value());
-    if (!props.onClick) return;
-    props.onClick(value());
   };
 
   return (

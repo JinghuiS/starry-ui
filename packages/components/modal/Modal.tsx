@@ -1,17 +1,16 @@
 import { Portal } from "solid-js/web";
-import { useDOMCreate } from "@starry-ui/hooks";
 import {
-  createEffect,
-  createSignal,
-  mergeProps,
-  Show,
-  type FlowProps,
-} from "solid-js";
+  createComponentFactory,
+  createControllableSignal,
+  useDOMCreate,
+} from "@starry-ui/hooks";
+import { createEffect, mergeProps, type FlowProps } from "solid-js";
 import { type StarryModalProps } from "./modal-type";
-import { createComponentFactory } from "../utils/createComponentFactory";
+
 import clsx from "clsx";
-import { addUnit } from "../utils/dom/style";
+
 import { SlowShow } from "../SlowShow/SlowShow";
+import { addUnit } from "@starry-ui/utils";
 
 export function Modal(props: FlowProps<StarryModalProps>) {
   const node = useDOMCreate("starry-modal");
@@ -41,21 +40,20 @@ export function Modal(props: FlowProps<StarryModalProps>) {
     }),
   });
 
-  const ModalPropsVisible: () => boolean = () =>
-    (ModalProps.visible != null ? ModalProps.visible : false) as boolean;
-
-  const [visible, setVisible] = createSignal(ModalPropsVisible());
+  const [visible, setVisible] = createControllableSignal({
+    value: () => ModalProps.visible,
+  });
 
   let visibleTimer: number | undefined;
 
   createEffect(() => {
-    if (!props.visible) {
+    if (!ModalProps.visible) {
       clearTimeout(visibleTimer);
       visibleTimer = setTimeout(() => {
-        setVisible(ModalPropsVisible());
+        setVisible(false);
       }, 250);
     } else {
-      setVisible(ModalPropsVisible());
+      setVisible(true);
     }
   });
 

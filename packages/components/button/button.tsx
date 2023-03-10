@@ -1,6 +1,7 @@
+import { createComponentFactory } from "@starry-ui/hooks";
 import clsx from "clsx";
 import type { FlowProps } from "solid-js";
-import { createComponentFactory } from "../utils/createComponentFactory";
+
 import type { StarryButtonProps } from "./button-type";
 
 export function Button(props: FlowProps<StarryButtonProps>) {

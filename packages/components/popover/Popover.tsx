@@ -1,6 +1,7 @@
+import { createComponentFactory } from "@starry-ui/hooks";
 import { type FlowProps, onMount } from "solid-js";
 import tippy, { type Instance, type Props } from "tippy.js";
-import { createComponentFactory } from "../utils/createComponentFactory";
+
 import type { StarryPopoverProps } from "./popover-type";
 
 export function Popover(props: FlowProps<StarryPopoverProps>) {
