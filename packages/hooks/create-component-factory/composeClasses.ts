@@ -1,3 +1,4 @@
+// https://github.com/mui/material-ui/blob/master/packages/mui-base/src/composeClasses/composeClasses.ts
 export default function composeClasses<ClassKey extends string>(
   name: string,
   slots: Record<ClassKey, ReadonlyArray<string | false | undefined | null>>,

@@ -7,6 +7,5 @@ export function useDOMCreate(nodeId: string) {
   onCleanup(() => {
     if (node) document.body.removeChild(node);
   });
-
   return node;
 }

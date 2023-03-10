@@ -11,3 +11,9 @@ export const isStringNumber = (val: string): boolean => {
   }
   return !Number.isNaN(Number(val));
 };
+// Function assertions
+export function isFunction<T extends Function = Function>(
+  value: any
+): value is T {
+  return typeof value === "function";
+}

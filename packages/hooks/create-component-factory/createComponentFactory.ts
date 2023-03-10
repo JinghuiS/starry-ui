@@ -1,6 +1,7 @@
+// https://github.com/swordev/suid/blob/main/packages/base/src/createComponentFactory.ts
 import { createComputed, batch, mergeProps, splitProps } from "solid-js";
 import { createMutable } from "solid-js/store";
-import type { CommonProps } from "../type";
+import type { CommonProps } from "@starry-ui/types";
 import composeClasses from "./composeClasses";
 
 export function createComponentFactory<
