@@ -8,6 +8,8 @@ import {
   Input,
   Modal,
   Popover,
+  Radio,
+  RadioGroup,
   Tag,
   Textarea,
   Title,
@@ -18,7 +20,14 @@ const App: Component = () => {
   const [loading, setLoading] = createSignal(false);
 
   const [v, setV] = createSignal("111");
-
+  const options = [
+    { label: '宋朝', value: '1' },
+    { label: '唐朝', value: '2' },
+    { label: '明朝', value: '3' },
+    { label: '清朝', value: '4' },
+  ]
+  const v1 = ''
+  const [radioV, setRadioV] = createSignal('')
   return (
     <div class={styles.App}>
       <div use:tooltip={{ content: v }}>112121</div>
@@ -60,6 +69,14 @@ const App: Component = () => {
         <CheckSwitch />
         <Textarea showCount maxLength={5} style={{ "margin-top": "20px" }} />
       </div>
+      <Radio label="测试" iconable />
+      <RadioGroup onClick={(e) => {
+        console.log(e);
+      }}>
+        <Radio label="测试" iconable value={'abc'} />
+        <Radio label="测试" iconable value={'111111'} />
+        <Radio label="测试" iconable value={'abssssc'} />
+      </RadioGroup>
     </div>
   );
 };
