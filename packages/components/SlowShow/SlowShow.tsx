@@ -3,6 +3,7 @@ import { createEffect, createSignal, type FlowProps, Show } from "solid-js";
 export function SlowShow<T>(
   props: FlowProps<{
     when: T | undefined | null | false;
+    retainDOM?: boolean;
   }>
 ) {
   const [when, setWhen] = createSignal(props.when);
@@ -18,6 +19,11 @@ export function SlowShow<T>(
       }, 250);
     }
   });
+  if (props.retainDOM) {
+    return (
+      <div style={{ display: when() ? "block" : "none" }}>{props.children}</div>
+    );
+  }
 
   return <Show when={when()}>{props.children}</Show>;
 }
