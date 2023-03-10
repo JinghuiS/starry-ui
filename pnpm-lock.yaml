@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@solid-primitives/utils': ^5.4.0
       clsx: ^1.2.1
       sass: ^1.52.1
       solid-js: ^1.6.10
@@ -11,6 +12,7 @@ importers:
       vite: ^4.1.1
       vite-plugin-solid: ^2.5.0
     dependencies:
+      '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
       clsx: 1.2.1
       solid-js: 1.6.12
       tippy.js: 6.3.7
@@ -22,17 +24,35 @@ importers:
   packages/components:
     specifiers:
       '@starry-ui/hooks': workspace:*
+      '@starry-ui/types': workspace:*
+      '@starry-ui/utils': workspace:*
     dependencies:
       '@starry-ui/hooks': link:../hooks
+      '@starry-ui/types': link:../types
+      '@starry-ui/utils': link:../utils
 
   packages/directives:
     specifiers: {}
 
   packages/hooks:
-    specifiers: {}
+    specifiers:
+      '@starry-ui/types': workspace:*
+      '@starry-ui/utils': workspace:*
+    devDependencies:
+      '@starry-ui/types': link:../types
+      '@starry-ui/utils': link:../utils
 
   packages/theme:
     specifiers: {}
+
+  packages/types:
+    specifiers: {}
+
+  packages/utils:
+    specifiers:
+      '@starry-ui/types': workspace:*
+    devDependencies:
+      '@starry-ui/types': link:../types
 
   play:
     specifiers:
@@ -612,6 +632,14 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
+  /@solid-primitives/utils/5.4.0_solid-js@1.6.12:
+    resolution: {integrity: sha512-cSya9Tnh8KW6OYtJbZYs3//CVWWQAOXhMckH9paSzMQcoM09P+R1lLUN9BhQOws4c6PMA0apPNrbWsQzqZzIEw==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      solid-js: 1.6.12
     dev: false
 
   /@types/babel__core/7.20.0:

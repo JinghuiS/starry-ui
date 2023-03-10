@@ -8,6 +8,8 @@
     "solid-js": "^1.6.10"
   },
   "dependencies": {
-    "@starry-ui/hooks": "workspace:*"
+    "@starry-ui/hooks": "workspace:*",
+    "@starry-ui/utils": "workspace:*",
+    "@starry-ui/types": "workspace:*"
   }
 }
