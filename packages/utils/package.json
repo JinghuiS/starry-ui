@@ -1,13 +1,13 @@
 {
-  "name": "@starry-ui/utils",
-  "version": "0.0.1",
-  "description": "all utils are settled here",
-  "main": "index.ts",
-  "module": "index.ts",
-  "peerDependencies": {
-    "solid-js": "^1.6.10"
-  },
-  "devDependencies": {
-    "@starry-ui/types": "workspace:*"
-  }
+    "name": "@starry-ui/utils",
+    "version": "0.0.1",
+    "description": "all utils are settled here",
+    "main": "index.ts",
+    "module": "index.ts",
+    "peerDependencies": {
+        "solid-js": "^1.6.10"
+    },
+    "devDependencies": {
+        "@starry-ui/types": "workspace:*"
+    }
 }

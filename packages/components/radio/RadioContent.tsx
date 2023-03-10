@@ -1,14 +1,12 @@
-import { type Accessor, createContext, useContext } from "solid-js";
-
+import { type Accessor, createContext, useContext } from 'solid-js';
 
 export interface RadioGroupContextValue {
-    value: Accessor<string | undefined>
-    setValue: (next: string | ((prev: string) => string)) => void
-    disabled?: boolean
+    value: Accessor<string | undefined>;
+    setValue: (next: string | ((prev: string) => string)) => void;
+    disabled?: boolean;
 }
 
-
-export const RadioGroupContext = createContext<RadioGroupContextValue>()
+export const RadioGroupContext = createContext<RadioGroupContextValue>();
 export function useRadioGroupContext() {
     const context = useContext(RadioGroupContext);
 

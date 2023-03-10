@@ -1,2 +1,2 @@
-export * from "./tooltip";
-export * from "./loading";
+export * from './tooltip';
+export * from './loading';

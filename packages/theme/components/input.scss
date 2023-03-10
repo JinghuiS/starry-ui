@@ -51,7 +51,7 @@
         transform: translateX(100%);
         transition: var(--starry-form-transition);
 
-        >div {
+        > div {
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -72,7 +72,7 @@
             cursor: pointer;
         }
 
-        >div:hover {
+        > div:hover {
             opacity: 1;
         }
     }
@@ -84,7 +84,6 @@
 }
 
 .starry-input-view-align-left {
-
     input,
     textarea {
         text-align: left;
@@ -92,7 +91,6 @@
 }
 
 .starry-input-view-align-center {
-
     input,
     textarea {
         text-align: center;
@@ -100,7 +98,6 @@
 }
 
 .starry-input-view-align-right {
-
     input,
     textarea {
         text-align: right;
@@ -130,7 +127,6 @@
 }
 
 .starry-input-view-small {
-
     input,
     textarea {
         padding: var(--starry-form-input-padding-small);
@@ -163,7 +159,6 @@
 }
 
 .starry-input-view-medium {
-
     input,
     textarea {
         padding: var(--starry-form-input-padding-medium);
@@ -196,7 +191,6 @@
 }
 
 .starry-input-view-large {
-
     input,
     textarea {
         padding: var(--starry-form-input-padding-large);

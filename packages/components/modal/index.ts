@@ -1,2 +1,2 @@
-export * from "./Modal";
-export * from "./modal-type";
+export * from './Modal';
+export * from './modal-type';

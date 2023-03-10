@@ -33,12 +33,12 @@
         border-radius: 50%;
     }
 
-    input:checked+.starry-switch-dot {
+    input:checked + .starry-switch-dot {
         background: #fff;
         transform: translate(18px, 4px);
     }
 
-    input:checked+.starry-switch-dot:after {
+    input:checked + .starry-switch-dot:after {
         transform: translateX(-100%);
     }
 }
@@ -87,7 +87,6 @@
 
 .starry-switch-view.starry-switch-checked {
     background: var(--starry-primary-color);
-
 }
 
 .starry-switch-view.starry-switch-checked:hover {

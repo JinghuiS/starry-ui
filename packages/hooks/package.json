@@ -1,14 +1,14 @@
 {
-  "name": "@starry-ui/hooks",
-  "version": "0.0.1",
-  "description": "all hooks are settled here",
-  "main": "index.ts",
-  "module": "index.ts",
-  "peerDependencies": {
-    "solid-js": "^1.6.10"
-  },
-  "devDependencies": {
-    "@starry-ui/types": "workspace:*",
-    "@starry-ui/utils": "workspace:*"
-  }
+    "name": "@starry-ui/hooks",
+    "version": "0.0.1",
+    "description": "all hooks are settled here",
+    "main": "index.ts",
+    "module": "index.ts",
+    "peerDependencies": {
+        "solid-js": "^1.6.10"
+    },
+    "devDependencies": {
+        "@starry-ui/types": "workspace:*",
+        "@starry-ui/utils": "workspace:*"
+    }
 }

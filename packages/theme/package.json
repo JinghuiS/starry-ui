@@ -1,8 +1,8 @@
 {
-  "name": "@starry-ui/theme",
-  "version": "0.0.1",
-  "description": "base theme",
-  "main": "index.scss",
-  "module": "index.scss",
-  "style": "index.scss"
+    "name": "@starry-ui/theme",
+    "version": "0.0.1",
+    "description": "base theme",
+    "main": "index.scss",
+    "module": "index.scss",
+    "style": "index.scss"
 }

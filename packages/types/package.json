@@ -1,10 +1,10 @@
 {
-  "name": "@starry-ui/types",
-  "version": "0.0.1",
-  "description": "base types are settled here",
-  "main": "index.ts",
-  "module": "index.ts",
-  "peerDependencies": {
-    "solid-js": "^1.6.10"
-  }
+    "name": "@starry-ui/types",
+    "version": "0.0.1",
+    "description": "base types are settled here",
+    "main": "index.ts",
+    "module": "index.ts",
+    "peerDependencies": {
+        "solid-js": "^1.6.10"
+    }
 }

@@ -1,2 +1,2 @@
-export * from "./props";
-export * from "./starryCommon";
+export * from './props';
+export * from './starryCommon';
