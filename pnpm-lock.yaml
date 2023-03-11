@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/config-conventional': ^17.4.4
       '@solid-primitives/utils': ^5.4.0
+      '@tabler/icons-solidjs': ^2.9.0
       '@typescript-eslint/eslint-plugin': ^5.54.1
       '@typescript-eslint/parser': ^5.54.1
       clsx: ^1.2.1
@@ -25,6 +26,7 @@ importers:
       vite-plugin-solid: ^2.5.0
     dependencies:
       '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
+      '@tabler/icons-solidjs': 2.9.0_solid-js@1.6.12
       clsx: 1.2.1
       solid-js: 1.6.12
       tippy.js: 6.3.7
@@ -909,6 +911,19 @@ packages:
       solid-js: ^1.6.0
     dependencies:
       solid-js: 1.6.12
+    dev: false
+
+  /@tabler/icons-solidjs/2.9.0_solid-js@1.6.12:
+    resolution: {integrity: sha512-9cogk6EFcJUF8IKUPdziYv3JUYhaTn7WnC29JxBv3gRbv+tpAJjeMbUhToc0A2vuhrRJakd/YQFn3TvNGHkDOg==}
+    peerDependencies:
+      solid-js: ^1.4.7
+    dependencies:
+      '@tabler/icons': 2.9.0
+      solid-js: 1.6.12
+    dev: false
+
+  /@tabler/icons/2.9.0:
+    resolution: {integrity: sha512-x0Vafi2m0jP+fgWxgOu/wI6/o7r+uVWr0NtpsNiboYn4KIDOPyxtJ6T156ZQ3XfDU51WZDaMUIxY35AF5QoowQ==}
     dev: false
 
   /@tsconfig/node10/1.0.9:

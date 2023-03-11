@@ -35,6 +35,7 @@
     },
     "dependencies": {
         "@solid-primitives/utils": "^5.4.0",
+        "@tabler/icons-solidjs": "^2.9.0",
         "clsx": "^1.2.1",
         "solid-js": "^1.6.10",
         "tippy.js": "^6.3.7"
