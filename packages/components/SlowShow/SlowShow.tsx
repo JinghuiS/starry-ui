@@ -7,7 +7,7 @@ export function SlowShow<T>(
     }>,
 ) {
     const [when, setWhen] = createSignal(props.when);
-    let whenTimer: number | undefined;
+    let whenTimer: NodeJS.Timeout;
 
     createEffect(() => {
         if (props.when) {

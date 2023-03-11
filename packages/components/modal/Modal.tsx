@@ -42,7 +42,7 @@ export function Modal(props: FlowProps<StarryModalProps>) {
         value: () => ModalProps.visible,
     });
 
-    let visibleTimer: number | undefined;
+    let visibleTimer: NodeJS.Timeout;
 
     createEffect(() => {
         if (!ModalProps.visible) {

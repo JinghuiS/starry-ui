@@ -32,14 +32,7 @@ const App: Component = () => {
         <div class={styles.App}>
             <div use:tooltip={{ content: v }}>112121</div>
             <div>
-                <Input
-                    value={v()}
-                    onInput={(v) => {
-                        setV(v.currentTarget.value);
-                    }}
-                    showCount
-                    maxLength={5}
-                />
+                <Input clearable type="password" showPassword />
             </div>
             <Modal
                 onClose={() => {
@@ -71,7 +64,7 @@ const App: Component = () => {
                         console.log(e);
                     }}
                 />
-                <Textarea showCount maxLength={5} style={{ 'margin-top': '20px' }} />
+                <Textarea clearable showCount style={{ 'margin-top': '20px' }} />
             </div>
             <Radio label="测试" iconable />
             <RadioGroup
