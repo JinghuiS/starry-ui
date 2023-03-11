@@ -1,7 +1,7 @@
 import { createComponentFactory, createControllableSignal } from '@starry-ui/hooks';
+import { IconCircleX } from '@tabler/icons-solidjs';
 import clsx from 'clsx';
-import { createEffect, createMemo, createSignal } from 'solid-js';
-import { Show } from 'solid-js';
+import { createMemo, Show } from 'solid-js';
 
 import { getTextLength } from './hook';
 import type { StarryTextareaProps } from './input-type';
@@ -24,14 +24,12 @@ export function Textarea(props: StarryTextareaProps) {
             align: 'left',
             placeholder: '请输入',
             niceCount: false,
-            value: '',
+            clearable: false,
         },
         selfPropNames: [
             'size',
-            'autoWidth',
             'align',
             'showCount',
-            'showPassword',
             'maxLength',
             'niceCount',
             'onInput',
@@ -42,6 +40,7 @@ export function Textarea(props: StarryTextareaProps) {
             'resize',
             'style',
             'class',
+            'clearable',
         ],
         classes: (state) => ({
             view: ['view'],
@@ -49,23 +48,28 @@ export function Textarea(props: StarryTextareaProps) {
             size: [`view-${state.size}`],
             readonly: [state.readOnly && 'view-readonly'],
             disabled: [state.disabled && 'view-disabled'],
-            autoWidth: [state.autoWidth && 'view-auto-width'],
             align: [state.align && `view-${state.align}`],
-
             controls: ['controls'],
             controlsShow: [
-                (value() && state.showPassword) ||
                 (value() && state.clearable) ||
-                (state.showCount && !state.clearable && !state.showPassword) ||
+                (state.showCount && !state.clearable) ||
                 (state.showCount && state.maxLength)
                     ? 'controls-show'
                     : false,
             ],
-            showPassword: ['show-password'],
+
             resize: ['resize-' + state.resize],
             showCount: ['show-count'],
+            clear: ['clear'],
         }),
     });
+
+    const handleClear = (): void => {
+        if (InputProps.onClear) {
+            InputProps.onClear('');
+        }
+        setValue('');
+    };
 
     const getCheckNumStr = createMemo(() => {
         const v = value() || '';
@@ -80,7 +84,7 @@ export function Textarea(props: StarryTextareaProps) {
 
     const handleInput: StarryTextareaProps['onInput'] = (event) => {
         const newEvent = event;
-        let v = event.currentTarget.value;
+        const v = event.currentTarget.value;
         if (InputProps.maxLength) {
             if (v.length <= InputProps.maxLength) {
                 setValue(v);
@@ -88,6 +92,7 @@ export function Textarea(props: StarryTextareaProps) {
             for (let i = 0; i <= v.length - 1; i++) {
                 if (getTextLength(v.slice(0, i), InputProps.niceCount) >= InputProps.maxLength) {
                     newEvent.currentTarget.value = v.slice(0, i);
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     //@ts-ignore
                     newEvent.target.value = v.slice(0, i);
                     setValue(v.slice(0, i));
@@ -112,14 +117,7 @@ export function Textarea(props: StarryTextareaProps) {
     return (
         <div
             style={InputProps.style}
-            class={clsx(
-                classes.view,
-                classes.textarea,
-                classes.size,
-                classes.readonly,
-                classes.disabled,
-                classes.autoWidth,
-            )}
+            class={clsx(classes.view, classes.textarea, classes.size, classes.readonly, classes.disabled)}
         >
             <textarea
                 class={classes.resize}
@@ -129,13 +127,18 @@ export function Textarea(props: StarryTextareaProps) {
                 onFocus={handleFocus}
                 {...otherProps}
             />
-            <Show when={InputProps.autoWidth}>
-                <label class="input-auto-width">{value()}</label>
-            </Show>
 
-            <Show when={InputProps.showCount || InputProps.showPassword || InputProps.clearable}>
+            <Show when={InputProps.showCount || InputProps.clearable}>
                 <div class={clsx(classes.controls, classes.controlsShow)}>
-                    <div class={classes.showCount}>{getCheckNumStr()}</div>
+                    <Show when={getCheckNumStr()}>
+                        <div class={classes.showCount}>{getCheckNumStr()}</div>
+                    </Show>
+
+                    <Show when={InputProps.clearable}>
+                        <div onClick={handleClear} class={classes.clear}>
+                            <IconCircleX size={16} />
+                        </div>
+                    </Show>
                 </div>
             </Show>
         </div>

@@ -27,9 +27,9 @@ export interface StarryInputOptions extends CommonProps {
     showCount?: boolean;
     niceCount?: boolean;
     focusSelect?: boolean;
-    onClear?: (value: string) => void;
+    onClear?: (value: any) => void;
 }
-interface StarryTextareaOptions extends StarryInputOptions {
+interface StarryTextareaOptions extends Omit<StarryInputOptions, 'autoWidth'> {
     resize?: StarryTextareaResize;
     rows?: number;
     cols?: number;
