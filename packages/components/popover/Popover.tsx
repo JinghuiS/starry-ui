@@ -16,7 +16,7 @@ export function Popover(props: FlowProps<StarryPopoverProps>) {
     } = createComponentFactory({
         props: props,
         name: 'popover',
-        selfPropNames: ['popoverBody'],
+        selfPropNames: ['popoverBody', 'ref', 'class', 'style', 'children'],
         propDefaults: {
             placement: 'top',
         },
@@ -36,6 +36,7 @@ export function Popover(props: FlowProps<StarryPopoverProps>) {
             appendTo: () => document.body,
             allowHTML: true,
             maxWidth: 'none',
+            ...otherProps,
             onShow(instance) {
                 const node = document.getElementsByTagName('html')[0];
                 if (node.classList.contains('starry-dark')) {
@@ -45,13 +46,14 @@ export function Popover(props: FlowProps<StarryPopoverProps>) {
                 }
             },
         });
+        instance.popper.children[0].setAttribute('data-starry', 'popover');
     });
 
     const show = () => {
-        return instance.show;
+        return instance.show();
     };
     const hide = () => {
-        return instance.hide;
+        return instance.hide();
     };
 
     const popoverBody = () => {
@@ -65,7 +67,18 @@ export function Popover(props: FlowProps<StarryPopoverProps>) {
     };
 
     return (
-        <div class={classes.base}>
+        <div
+            ref={(r) => {
+                PopoverProps.ref &&
+                    PopoverProps.ref({
+                        ...r,
+                        hide,
+                        show,
+                    });
+            }}
+            style={PopoverProps.style}
+            class={classes.base}
+        >
             <label ref={(el) => (triggerRef = el)} style="font-size: 0px">
                 <div class={classes.trigger}>{props.children}</div>
             </label>
