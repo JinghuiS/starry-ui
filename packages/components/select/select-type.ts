@@ -12,11 +12,12 @@ export interface StarrySelectProps extends CommonProps {
     size?: StarrySizeType;
     placeholder?: string;
     disabled?: boolean;
+    filterable?: boolean;
 }
 
 export interface StarrySelectOptionProps extends CommonProps {
     value: string | number;
     disabled?: boolean;
-    label?: string;
+    label: string;
     children?: JSX.Element;
 }

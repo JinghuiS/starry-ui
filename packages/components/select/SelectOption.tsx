@@ -12,6 +12,7 @@ export function SelectOption(props: StarrySelectOptionProps) {
         props,
         propDefaults: {
             value: '',
+            label: '',
         },
         selfPropNames: ['class', 'directives', 'disabled', 'label', 'style', 'value'],
         classes: (state) => ({
@@ -34,8 +35,20 @@ export function SelectOption(props: StarrySelectOptionProps) {
         selectContext?.popoverRef()?.hide();
     };
 
+    const isVisible = () => selectContext?.visible(SelectOptionProps.label);
+
+    const optionVisibleStyle = () => {
+        if (isVisible()) {
+            return '';
+        } else {
+            return {
+                display: 'none',
+            };
+        }
+    };
+
     return (
-        <label>
+        <label style={optionVisibleStyle()}>
             <div class={clsx(classes.base, classes.disabled, classes.checked)}>
                 <Show when={!props.children} fallback={<div class={classes.slot}></div>}>
                     <Switch>

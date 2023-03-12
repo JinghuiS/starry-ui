@@ -9,6 +9,7 @@ export interface SelectContextValue {
     setValue: (next: string | number | ((prev: StarrySelectProps['value']) => StarrySelectProps['value'])) => void;
     multiple: boolean;
     popoverRef: Accessor<StarryPopoverRef | undefined>;
+    visible: (label: string) => boolean;
 }
 
 export const SelectContext = createContext<SelectContextValue>();

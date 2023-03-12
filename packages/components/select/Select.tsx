@@ -1,10 +1,13 @@
 import { createComponentFactory, createControllableSignal } from '@starry-ui/hooks';
 import { createObserverElementSize } from '@starry-ui/utils';
-import { IconChevronDown } from '@tabler/icons-solidjs';
+import { IconChevronDown, IconMoodEmpty } from '@tabler/icons-solidjs';
 import clsx from 'clsx';
-import { createEffect, createMemo, createSignal, Match, onMount, Show, Switch, type FlowProps } from 'solid-js';
+import { createMemo, createSignal, Match, Show, Switch, type FlowProps } from 'solid-js';
+import { Empty } from '../empty';
+import { Input } from '../input';
 import { Popover, type StarryPopoverRef } from '../popover';
 import { Tag } from '../tag';
+import { useSelectFilterable } from './filterable';
 import type { StarrySelectProps } from './select-type';
 import { SelectContext, type SelectContextValue } from './SelectContext';
 
@@ -12,6 +15,7 @@ export function Select(props: FlowProps<StarrySelectProps>) {
     const [value, setValue] = createControllableSignal({
         value: () => props.value,
     });
+    const { selectInputProps, visible, optionArrayIsUndefined } = useSelectFilterable(props);
 
     const [popoverRef, setPopoverRef] = createSignal<StarryPopoverRef>();
     const [selectRef, setSelectRef] = createSignal<HTMLDivElement>();
@@ -42,6 +46,7 @@ export function Select(props: FlowProps<StarrySelectProps>) {
             'style',
             'class',
             'placeholder',
+            'filterable',
         ],
         propDefaults: {
             placement: 'bottom-start',
@@ -50,6 +55,7 @@ export function Select(props: FlowProps<StarrySelectProps>) {
             align: 'left',
             showIcon: true,
             size: 'medium',
+            filterable: false,
         },
         classes: (state) => ({
             icon: ['icon'],
@@ -58,7 +64,8 @@ export function Select(props: FlowProps<StarrySelectProps>) {
             align: [state.align],
             placeholder: ['placeholder'],
             label: [state.multiple ? 'label-multiple' : 'label-single'],
-            optionsBox: ['options-box'],
+            optionsBox: ['options-box', state.filterable && 'options-margin'],
+            header: ['header'],
             body: ['body', `body-${state.size}`, state.multiple && 'multiple-body', `body-align-${state.align}`],
         }),
     });
@@ -67,18 +74,13 @@ export function Select(props: FlowProps<StarrySelectProps>) {
         value,
         multiple: SelectProps.multiple as boolean,
         label,
+        visible,
         setLabel,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         setValue,
         popoverRef: popoverRef,
     };
-
-    // onMount(() => {
-    //     const dom = selectRef();
-    //     if (!dom) return;
-    //     setSelectWidth({ width: dom.offsetWidth - 18 + 'px' });
-    // });
 
     const selectBoxWidth = createMemo(() => {
         const e = selectSize() as HTMLDivElement;
@@ -102,7 +104,19 @@ export function Select(props: FlowProps<StarrySelectProps>) {
                 }}
                 popoverBody={() => (
                     <div class={clsx(classes.body)} style={{ width: selectBoxWidth() + 'px' }}>
-                        <div class={classes.optionsBox}>{props.children}</div>
+                        <div class={clsx(classes.header)}>
+                            <Show when={SelectProps.filterable}>
+                                <Input {...selectInputProps} />
+                            </Show>
+                        </div>
+
+                        <div class={classes.optionsBox}>
+                            {props.children}
+
+                            <Show when={optionArrayIsUndefined()}>
+                                <Empty />
+                            </Show>
+                        </div>
                     </div>
                 )}
                 ref={setPopoverRef}

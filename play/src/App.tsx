@@ -58,9 +58,11 @@ const App: Component = () => {
                         console.log(e);
                     }}
                 />
-                <Select multiple={loading()}>
+                <Select filterable multiple={loading()}>
                     <SelectOption label="测试" value={'1'} />
                     <SelectOption label="测试2" value={'2'} />
+                    <SelectOption label="测33" value={'d'} />
+                    <SelectOption label="试5" value={'a'} />
                 </Select>
                 <Textarea clearable showCount style={{ 'margin-top': '20px' }} />
             </div>

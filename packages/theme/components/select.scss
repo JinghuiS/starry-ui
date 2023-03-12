@@ -144,9 +144,23 @@
     text-align: right;
 }
 
+
+
 .starry-select-body {
     width: 100%;
     box-sizing: border-box;
+
+    .starry-select-header {
+        padding-bottom: 4px;
+        border-bottom: var(--starry-border-1);
+    }
+
+    .starry-select-options-margin {
+
+        .starry-select-option {
+            margin-top: 4px;
+        }
+    }
 
     .starry-select-options-box {
         overflow-y: auto;
@@ -169,8 +183,10 @@
             color: var(--starry-text-color-7);
             box-sizing: border-box;
             border-radius: var(--starry-border-radius);
-            margin-bottom: 4px;
+
         }
+
+
 
         .starry-select-option-checked {
             background: var(--starry-primary-color-light);
@@ -243,6 +259,7 @@
 }
 
 .starry-select-body-small {
+
     .starry-select-options-box {
         .starry-select-option {
             height: 28px;
