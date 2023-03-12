@@ -34,6 +34,8 @@
         "vite-plugin-solid": "^2.5.0"
     },
     "dependencies": {
+        "@solid-primitives/refs": "^1.0.0",
+        "@solid-primitives/resize-observer": "^2.0.11",
         "@solid-primitives/utils": "^5.4.0",
         "@tabler/icons-solidjs": "^2.9.0",
         "clsx": "^1.2.1",

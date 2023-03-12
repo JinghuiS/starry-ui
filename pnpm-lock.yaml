@@ -5,6 +5,8 @@ importers:
   .:
     specifiers:
       '@commitlint/config-conventional': ^17.4.4
+      '@solid-primitives/refs': ^1.0.0
+      '@solid-primitives/resize-observer': ^2.0.11
       '@solid-primitives/utils': ^5.4.0
       '@tabler/icons-solidjs': ^2.9.0
       '@typescript-eslint/eslint-plugin': ^5.54.1
@@ -25,6 +27,8 @@ importers:
       vite: ^4.1.1
       vite-plugin-solid: ^2.5.0
     dependencies:
+      '@solid-primitives/refs': 1.0.0_solid-js@1.6.12
+      '@solid-primitives/resize-observer': 2.0.11_solid-js@1.6.12
       '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
       '@tabler/icons-solidjs': 2.9.0_solid-js@1.6.12
       clsx: 1.2.1
@@ -903,6 +907,44 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
+  /@solid-primitives/event-listener/2.2.8_solid-js@1.6.12:
+    resolution: {integrity: sha512-I3Fw6+1g1YrXBWHwnNi6UaYuRVeaRBN2pvfGvKgnHH4OtfN6mgkGXi7s+/QOJjS29sEdwRDR9tQgxckaIxKZ7A==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
+      solid-js: 1.6.12
+    dev: false
+
+  /@solid-primitives/refs/1.0.0_solid-js@1.6.12:
+    resolution: {integrity: sha512-eoX2UNSIGIFniuf7bbq7vPdl7QxNL/vxHQFxbXaqtFpvPaLDHRNLzYOO3xai24D8U63Vmg1Wresysia9B35mXw==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
+      solid-js: 1.6.12
+    dev: false
+
+  /@solid-primitives/resize-observer/2.0.11_solid-js@1.6.12:
+    resolution: {integrity: sha512-d9ePqQWVnHrr05u2IQaQNSPHaE898LUU5vuUcJzyjAP+3y6w/OD7wQKF/+BifploVqu3Fz7hLGlJA9GoDF2c2Q==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/event-listener': 2.2.8_solid-js@1.6.12
+      '@solid-primitives/rootless': 1.2.6_solid-js@1.6.12
+      '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
+      solid-js: 1.6.12
+    dev: false
+
+  /@solid-primitives/rootless/1.2.6_solid-js@1.6.12:
+    resolution: {integrity: sha512-gcEF2JqdLDyKsfA7FWRZok1JkbKKjQesaRAj4odfkHTakEzU95YfBQxH9NHZ/ezP5WSR7m/xEh5eQjHs+7XPPA==}
+    peerDependencies:
+      solid-js: ^1.6.11
+    dependencies:
+      '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
+      solid-js: 1.6.12
     dev: false
 
   /@solid-primitives/utils/5.4.0_solid-js@1.6.12:
