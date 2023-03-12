@@ -1,0 +1,33 @@
+.starry-result {
+    .starry-result-icon {
+        width: 100px;
+    }
+
+    .starry-result-title {
+        font-size: 22px;
+    }
+
+    .starry-result-content {
+        max-width: 50%;
+    }
+
+    .starry-result-icon-success {
+        color: var(--starry-success-color);
+    }
+
+    .starry-result-icon-warning {
+        color: var(--starry-warning-color);
+    }
+
+    .starry-result-icon-normal {
+        color: var(--starry-normal-color-dark);
+    }
+
+    .starry-result-icon-error {
+        color: var(--starry-error-color);
+    }
+
+    .starry-result-icon-info {
+        color: var(--starry-info-color);
+    }
+}

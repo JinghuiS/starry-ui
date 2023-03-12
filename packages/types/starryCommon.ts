@@ -11,3 +11,5 @@ export type ElementType<Props = any> = DOMElements | Component<Props>;
 
 export type StarrySizeType = 'small' | 'medium' | 'large';
 export type StarryColorType = 'primary' | 'normal' | 'success' | 'error' | 'warning';
+
+export type StarryStateType = 'success' | 'warning' | 'normal' | 'error' | 'info';
