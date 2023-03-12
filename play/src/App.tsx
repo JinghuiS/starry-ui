@@ -10,6 +10,8 @@ import {
     Popover,
     Radio,
     RadioGroup,
+    Select,
+    SelectOption,
     Tag,
     Textarea,
     Title,
@@ -34,14 +36,6 @@ const App: Component = () => {
             <div>
                 <Input clearable type="password" showPassword />
             </div>
-            <Modal
-                onClose={() => {
-                    setLoading(false);
-                }}
-                visible={loading()}
-            >
-                <div>12121</div>
-            </Modal>
 
             <Popover popoverBody={() => <div>测试k</div>}>
                 <Button
@@ -64,8 +58,13 @@ const App: Component = () => {
                         console.log(e);
                     }}
                 />
+                <Select multiple={loading()}>
+                    <SelectOption label="测试" value={'1'} />
+                    <SelectOption label="测试2" value={'2'} />
+                </Select>
                 <Textarea clearable showCount style={{ 'margin-top': '20px' }} />
             </div>
+
             <Radio label="测试" iconable />
             <RadioGroup
                 onClick={(e) => {

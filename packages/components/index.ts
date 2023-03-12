@@ -6,3 +6,4 @@ export * from './popover';
 export * from './modal';
 export * from './title';
 export * from './radio';
+export * from './select';
