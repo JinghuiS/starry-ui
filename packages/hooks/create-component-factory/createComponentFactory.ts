@@ -6,16 +6,17 @@ import composeClasses from './composeClasses';
 
 export function createComponentFactory<
     C extends CommonProps,
+    CS extends Record<string, (string | false | undefined)[]>,
     S extends Record<string, (string | false | undefined)[]>,
 >(options: {
     props: C;
     propDefaults?: Omit<C, 'children'>;
-    selfPropNames: Exclude<keyof C, 'children'>[];
+    selfPropNames: Exclude<keyof C, S>[];
     name: string;
     baseClass?: (option: typeof options) => string;
-    classes?: (ownerState: C) => S;
+    classes?: (ownerState: C) => CS;
 }) {
-    type IProps = Omit<C, 'children'>;
+    type IProps = C;
     function splitInProps(allProps: IProps) {
         const [props, otherProps] = splitProps(allProps, options.selfPropNames);
         return { allProps, props, otherProps };
@@ -33,11 +34,11 @@ export function createComponentFactory<
                 baseClass = baseClass + ' ' + options.baseClass(options);
             }
 
-            return composeClasses(options.name, options.classes(ownerState), baseClass) as { [K in keyof S]: string };
+            return composeClasses(options.name, options.classes(ownerState), baseClass) as { [K in keyof CS]: string };
         };
 
         const classes: {
-            [K in keyof S]: string;
+            [K in keyof CS]: string;
         } = createMutable({} as any);
 
         if (haveSlotClasses)
@@ -65,7 +66,7 @@ export function createComponentFactory<
     }
 
     const directives = useDirectives(options.props);
-    const { props, allProps, otherProps } = useProps(options.props, options.propDefaults);
+    const { props, allProps, otherProps } = useProps(options.props, options.propDefaults as any);
 
     const classes = useClasses(props as C);
 

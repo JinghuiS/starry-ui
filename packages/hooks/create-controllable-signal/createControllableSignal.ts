@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 // https://github.com/kobaltedev/kobalte/blob/main/packages/core/src/primitives/create-controllable-signal/create-controllable-signal.ts
 import { accessWith } from '@starry-ui/utils';
 import { Accessor, createMemo, createSignal, untrack } from 'solid-js';
@@ -19,7 +20,6 @@ export interface CreateControllableSignalProps<T> {
  */
 export function createControllableSignal<T>(props: CreateControllableSignalProps<T>) {
     // Internal uncontrolled value
-    // eslint-disable-next-line solid/reactivity
     const [_value, _setValue] = createSignal(props.defaultValue?.());
 
     const isControlled = createMemo(() => props.value?.() !== undefined);
