@@ -16,7 +16,7 @@ export interface StarryTagOptions extends CommonProps {
     right?: JSX.Element;
     onClose?: (
         event: MouseEvent & {
-            currentTarget: HTMLDivElement;
+            currentTarget: SVGSVGElement;
             target: Element;
         },
     ) => void;

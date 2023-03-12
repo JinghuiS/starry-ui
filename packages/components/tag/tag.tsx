@@ -1,6 +1,7 @@
 import { createComponentFactory } from '@starry-ui/hooks';
+import { IconX } from '@tabler/icons-solidjs';
 import clsx from 'clsx';
-import { type FlowProps, Show } from 'solid-js';
+import { type FlowProps, Show, createMemo } from 'solid-js';
 
 import type { StarryTagProps } from './tag-type';
 
@@ -45,6 +46,19 @@ export function Tag(props: FlowProps<StarryTagProps>) {
         }),
     });
 
+    const iconSize = createMemo(() => {
+        switch (TagProps.size) {
+            case 'small':
+                return '12';
+            case 'medium':
+                return '14';
+            case 'large':
+                return '16';
+            default:
+                return '14';
+        }
+    });
+
     const handleClick = (
         event: MouseEvent & {
             currentTarget: HTMLDivElement;
@@ -56,7 +70,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
     };
     const handleClose = (
         event: MouseEvent & {
-            currentTarget: HTMLDivElement;
+            currentTarget: SVGSVGElement;
             target: Element;
         },
     ) => {
@@ -75,7 +89,9 @@ export function Tag(props: FlowProps<StarryTagProps>) {
             <div class={classes.value}>{props.children}</div>
             <div class={classes.right}>{TagProps.right}</div>
             <Show when={TagProps.closable}>
-                <div class={classes.closableIcon} onClick={handleClose} />
+                <div class={classes.closableIcon}>
+                    <IconX onClick={handleClose} size={iconSize()} />
+                </div>
             </Show>
         </div>
     );
