@@ -24,6 +24,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
             'round',
             'left',
             'right',
+            'class',
         ],
         props: props,
         propDefaults: {
@@ -46,7 +47,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
         }),
     });
 
-    const iconSize = createMemo(() => {
+    const iconSize = () => {
         switch (TagProps.size) {
             case 'small':
                 return '12';
@@ -57,7 +58,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
             default:
                 return '14';
         }
-    });
+    };
 
     const handleClick = (
         event: MouseEvent & {
@@ -81,7 +82,15 @@ export function Tag(props: FlowProps<StarryTagProps>) {
     return (
         <div
             ref={directives}
-            class={clsx(classes.base, classes.size, classes.type, classes.round, classes.bold, classes.disabled)}
+            class={clsx(
+                classes.base,
+                classes.size,
+                classes.type,
+                classes.round,
+                classes.bold,
+                classes.disabled,
+                TagProps.class,
+            )}
             onClick={handleClick}
             {...otherProps}
         >
