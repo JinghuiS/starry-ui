@@ -15,6 +15,8 @@ import {
     Tag,
     Textarea,
     Title,
+    Breadcrumb,
+    type StarryBreadCrumbItemProps,
 } from '@starry-ui/components';
 import { tooltip, starryLoading } from '@starry-ui/directives';
 
@@ -28,6 +30,28 @@ const App: Component = () => {
         { label: '明朝', value: '3' },
         { label: '清朝', value: '4' },
     ];
+    const [breadcrumbs, setBreadcrumbs] = createSignal<StarryBreadCrumbItemProps[]>([
+        {
+            label: 'Avatar',
+            to: '/Avatar',
+        },
+        {
+            label: 'Breadcrumb',
+            to: '/Breadcrumb',
+        },
+        {
+            label: 'Input',
+            to: '/Input',
+        },
+        {
+            label: 'Dialog',
+            to: '/Dialog',
+        },
+        {
+            label: 'Flex',
+            to: '/Flex',
+        },
+    ]);
     const v1 = '';
     const [radioV, setRadioV] = createSignal('');
     return (
@@ -42,6 +66,7 @@ const App: Component = () => {
                     onClick={() => {
                         setV('点了');
                         setLoading(!loading());
+                        setBreadcrumbs((pre) => [...pre, { label: 'test', to: '' }]);
                     }}
                 >
                     1
@@ -78,6 +103,7 @@ const App: Component = () => {
                 <Radio label="测试" iconable value={'111111'} />
                 <Radio label="测试" iconable value={'abssssc'} />
             </RadioGroup>
+            <Breadcrumb items={breadcrumbs()} maxCount={5}></Breadcrumb>
         </div>
     );
 };
