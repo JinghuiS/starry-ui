@@ -47,6 +47,7 @@ export function Select(props: FlowProps<StarrySelectProps>) {
             'class',
             'placeholder',
             'filterable',
+            'header',
         ],
         propDefaults: {
             placement: 'bottom-start',
@@ -104,12 +105,14 @@ export function Select(props: FlowProps<StarrySelectProps>) {
                 }}
                 popoverBody={() => (
                     <div class={clsx(classes.body)} style={{ width: selectBoxWidth() + 'px' }}>
-                        <div class={clsx(classes.header)}>
-                            <Show when={SelectProps.filterable}>
-                                <Input {...selectInputProps} />
-                            </Show>
-                        </div>
-
+                        <Show when={SelectProps.filterable || SelectProps.header}>
+                            <div class={clsx(classes.header)}>
+                                <Show when={SelectProps.filterable}>
+                                    <Input {...selectInputProps} />
+                                </Show>
+                            </div>
+                            {SelectProps.header}
+                        </Show>
                         <div class={classes.optionsBox}>
                             {props.children}
 

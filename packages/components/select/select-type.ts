@@ -13,6 +13,7 @@ export interface StarrySelectProps extends CommonProps {
     placeholder?: string;
     disabled?: boolean;
     filterable?: boolean;
+    header?: JSX.Element;
 }
 
 export interface StarrySelectOptionProps extends CommonProps {

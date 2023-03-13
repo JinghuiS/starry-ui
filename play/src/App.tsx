@@ -50,7 +50,7 @@ const App: Component = () => {
 
             <Button colorType={'success'}>ces</Button>
 
-            <Title bold>121211212</Title>
+            <Title bold>F</Title>
 
             <div use:starryLoading={{ isShow: loading() }} style={{ width: '300px' }}>
                 <CheckSwitch
@@ -58,7 +58,8 @@ const App: Component = () => {
                         console.log(e);
                     }}
                 />
-                <Select filterable multiple={loading()}>
+
+                <Select multiple={loading()}>
                     <SelectOption label="测试" value={'1'} />
                     <SelectOption label="测试2" value={'2'} />
                     <SelectOption label="测33" value={'d'} />
