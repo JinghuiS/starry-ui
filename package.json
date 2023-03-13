@@ -9,7 +9,7 @@
         "type-check": "tsc --project tsconfig.json --pretty --noEmit",
         "lint": "prettier --check . --ignore-path .gitignore && eslint .",
         "format": "prettier --ignore-path .gitignore --write .",
-        "prepare": "husky install && chmod ug+x .husky/*",
+        "prepare": "husky install",
         "format-check": "prettier -- --list-different",
         "commit": "git-cz"
     },
