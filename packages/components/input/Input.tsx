@@ -125,7 +125,14 @@ export function Input(props: StarryInputProps) {
     return (
         <div
             style={InputProps.style}
-            class={clsx(classes.view, classes.size, classes.readonly, classes.disabled, classes.autoWidth)}
+            class={clsx(
+                classes.view,
+                classes.size,
+                classes.readonly,
+                classes.disabled,
+                classes.autoWidth,
+                InputProps.class,
+            )}
         >
             <input
                 ref={directives}
