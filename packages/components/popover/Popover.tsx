@@ -1,4 +1,5 @@
 import { createComponentFactory } from '@starry-ui/hooks';
+import clsx from 'clsx';
 import { type FlowProps, onMount } from 'solid-js';
 import tippy, { type Instance, type Props } from 'tippy.js';
 
@@ -13,6 +14,7 @@ export function Popover(props: FlowProps<StarryPopoverProps>) {
         classes,
         props: PopoverProps,
         otherProps,
+        rootStyle,
     } = createComponentFactory({
         props: props,
         name: 'popover',
@@ -76,8 +78,8 @@ export function Popover(props: FlowProps<StarryPopoverProps>) {
                         show,
                     });
             }}
-            style={PopoverProps.style}
-            class={classes.base}
+            style={rootStyle()}
+            class={clsx(classes.base, classes.propsClass)}
         >
             <label ref={(el) => (triggerRef = el)} style="font-size: 0px">
                 <div class={classes.trigger}>{props.children}</div>

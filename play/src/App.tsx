@@ -74,6 +74,15 @@ const App: Component = () => {
                 </Button>
             </Popover>
 
+            <Modal
+                style={'height:500px'}
+                onClose={() => {
+                    setLoading(false);
+                }}
+                visible={loading()}
+            >
+                <div>211</div>
+            </Modal>
             <Button colorType={'success'}>ces</Button>
 
             <Title bold>F</Title>

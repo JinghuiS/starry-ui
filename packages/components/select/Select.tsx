@@ -31,6 +31,7 @@ export function Select(props: FlowProps<StarrySelectProps>) {
         props: SelectProps,
         classes,
         otherProps,
+        rootStyle,
     } = createComponentFactory({
         name: 'select',
         props,
@@ -126,7 +127,11 @@ export function Select(props: FlowProps<StarrySelectProps>) {
                 class={clsx(classes.baseView, classes.focus)}
                 style={{ width: '100%' }}
             >
-                <div ref={setSelectRef} class={clsx(classes.base, classes.size, classes.align)}>
+                <div
+                    ref={setSelectRef}
+                    style={rootStyle()}
+                    class={clsx(classes.base, classes.size, classes.align, classes.propsClass)}
+                >
                     <IconChevronDown class={classes.icon} size={16} />
                     <Show
                         when={

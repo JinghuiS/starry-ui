@@ -10,6 +10,7 @@ export function Button(props: FlowProps<StarryButtonProps>) {
         otherProps,
         props: ButtonProps,
         directives,
+        rootStyle,
     } = createComponentFactory({
         name: 'button',
         selfPropNames: ['colorType', 'loading', 'size', 'disabled', 'round'],
@@ -41,8 +42,9 @@ export function Button(props: FlowProps<StarryButtonProps>) {
     return (
         <button
             ref={directives}
-            class={clsx(classes.base, classes.size, classes.type, classes.loading, classes.round)}
+            class={clsx(classes.base, classes.size, classes.type, classes.loading, classes.round, classes.propsClass)}
             onClick={handleClick}
+            style={rootStyle()}
             {...otherProps}
         >
             {props.children}

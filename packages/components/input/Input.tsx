@@ -17,6 +17,7 @@ export function Input(props: StarryInputProps) {
         directives,
         props: InputProps,
         otherProps,
+        rootStyle,
     } = createComponentFactory({
         name: 'input',
         props: props,
@@ -41,8 +42,7 @@ export function Input(props: StarryInputProps) {
             'onClear',
             'value',
             'focusSelect',
-            'style',
-            'class',
+
             'type',
             'clearable',
         ],
@@ -124,14 +124,14 @@ export function Input(props: StarryInputProps) {
 
     return (
         <div
-            style={InputProps.style}
+            style={rootStyle()}
             class={clsx(
                 classes.view,
                 classes.size,
                 classes.readonly,
                 classes.disabled,
                 classes.autoWidth,
-                InputProps.class,
+                classes.propsClass,
             )}
         >
             <input

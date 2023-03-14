@@ -23,6 +23,7 @@ export function Radio(props: StarryRadioProps) {
         otherProps,
         props: RadioProps,
         directives,
+        rootStyle,
     } = createComponentFactory({
         name: 'radio',
         selfPropNames: ['label', 'size', 'block', 'iconable', 'checked', 'disabled'],
@@ -49,7 +50,16 @@ export function Radio(props: StarryRadioProps) {
     return (
         <div
             ref={directives}
-            class={clsx(classes.base, classes.size, classes.block, classes.iconable, classes.checked, classes.disabled)}
+            class={clsx(
+                classes.base,
+                classes.size,
+                classes.block,
+                classes.iconable,
+                classes.checked,
+                classes.disabled,
+                classes.propsClass,
+            )}
+            style={rootStyle()}
             onClick={handleChecked}
             {...otherProps}
         >

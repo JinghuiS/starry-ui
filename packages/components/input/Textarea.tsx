@@ -16,6 +16,7 @@ export function Textarea(props: StarryTextareaProps) {
         directives,
         props: InputProps,
         otherProps,
+        rootStyle,
     } = createComponentFactory({
         name: 'input',
         props: props,
@@ -38,8 +39,6 @@ export function Textarea(props: StarryTextareaProps) {
             'value',
             'focusSelect',
             'resize',
-            'style',
-            'class',
             'clearable',
         ],
         classes: (state) => ({
@@ -116,8 +115,15 @@ export function Textarea(props: StarryTextareaProps) {
 
     return (
         <div
-            style={InputProps.style}
-            class={clsx(classes.view, classes.textarea, classes.size, classes.readonly, classes.disabled)}
+            style={rootStyle()}
+            class={clsx(
+                classes.view,
+                classes.textarea,
+                classes.size,
+                classes.readonly,
+                classes.disabled,
+                classes.propsClass,
+            )}
         >
             <textarea
                 class={classes.resize}

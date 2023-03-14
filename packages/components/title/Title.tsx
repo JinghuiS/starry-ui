@@ -8,6 +8,7 @@ export function Title(props: FlowProps<StarryTitleProps>) {
         props: TitleProps,
         otherProps,
         classes,
+        rootStyle,
     } = createComponentFactory({
         name: 'title',
         props: props,
@@ -18,7 +19,7 @@ export function Title(props: FlowProps<StarryTitleProps>) {
     });
 
     return (
-        <div class={clsx(classes.base, classes.bold, TitleProps.class)} {...otherProps}>
+        <div class={clsx(classes.base, classes.bold, classes.propsClass)} style={rootStyle()} {...otherProps}>
             {props.children}
         </div>
     );

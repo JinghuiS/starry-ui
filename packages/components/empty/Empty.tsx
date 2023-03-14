@@ -17,7 +17,7 @@ export function Empty(props: StarryEmptyProps) {
             size: 50,
             title: '暂无数据',
         },
-        selfPropNames: ['size', 'content', 'title', 'icon', 'class'],
+        selfPropNames: ['size', 'content', 'title', 'icon'],
         classes: () => ({}),
     });
     return (
@@ -26,7 +26,7 @@ export function Empty(props: StarryEmptyProps) {
             icon={EmptyProps.icon ? EmptyProps.icon : <IconMoodEmpty size={EmptyProps.size} />}
             {...EmptyProps}
             {...otherProps}
-            class={clsx(classes.base, EmptyProps.class)}
+            class={clsx(classes.base, classes.propsClass)}
         >
             {props.children}
         </Result>

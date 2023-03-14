@@ -1,7 +1,7 @@
 import { createComponentFactory } from '@starry-ui/hooks';
 import { IconX } from '@tabler/icons-solidjs';
 import clsx from 'clsx';
-import { type FlowProps, Show, createMemo } from 'solid-js';
+import { type FlowProps, Show } from 'solid-js';
 
 import type { StarryTagProps } from './tag-type';
 
@@ -11,6 +11,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
         otherProps,
         props: TagProps,
         directives,
+        rootStyle,
     } = createComponentFactory({
         name: 'tag',
         selfPropNames: [
@@ -34,10 +35,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
         classes: (state) => ({
             type: [state.colorType],
             size: [state.size],
-            closableIcon: [
-                state.closable && 'closable-icon',
-                state.closable && !state.disabled && 'closable-icon-show',
-            ],
+            closeIcon: [state.closable && 'close'],
             round: [state.round && 'round'],
             bold: [state.bold && 'bold'],
             disabled: [state.disabled && 'disabled'],
@@ -89,8 +87,9 @@ export function Tag(props: FlowProps<StarryTagProps>) {
                 classes.round,
                 classes.bold,
                 classes.disabled,
-                TagProps.class,
+                classes.propsClass,
             )}
+            style={rootStyle()}
             onClick={handleClick}
             {...otherProps}
         >
@@ -98,7 +97,7 @@ export function Tag(props: FlowProps<StarryTagProps>) {
             <div class={classes.value}>{props.children}</div>
             <div class={classes.right}>{TagProps.right}</div>
             <Show when={TagProps.closable}>
-                <div class={classes.closableIcon}>
+                <div class={classes.closeIcon}>
                     <IconX onClick={handleClose} size={iconSize()} />
                 </div>
             </Show>

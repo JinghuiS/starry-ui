@@ -18,6 +18,7 @@ export function CheckSwitch(props: StarryCheckSwitchProps) {
         classes,
         otherProps,
         directives,
+        rootStyle,
     } = createComponentFactory({
         name: 'switch',
         props: props,
@@ -39,7 +40,11 @@ export function CheckSwitch(props: StarryCheckSwitchProps) {
     };
 
     return (
-        <div class={clsx(classes.baseView, classes.round, classes.checked, classes.loading)} onClick={handleClick}>
+        <div
+            class={clsx(classes.baseView, classes.round, classes.checked, classes.loading, classes.propsClass)}
+            onClick={handleClick}
+            style={rootStyle()}
+        >
             <input
                 ref={directives}
                 style={{

@@ -12,6 +12,7 @@ export function Result(props: FlowProps<StarryResultProps>) {
         props: ResultProps,
         directives,
         otherProps,
+        rootStyle,
     } = createComponentFactory({
         name: 'result',
         props,
@@ -29,7 +30,7 @@ export function Result(props: FlowProps<StarryResultProps>) {
     });
 
     return (
-        <Flex direction="y" class={clsx(classes.base, ResultProps.class)} {...otherProps}>
+        <Flex direction="y" class={clsx(classes.base, classes.propsClass)} style={rootStyle()} {...otherProps}>
             <Flex class={classes.icon}>
                 <Switch>
                     <Match when={ResultProps.icon}>{ResultProps.icon}</Match>

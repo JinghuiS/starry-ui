@@ -5,7 +5,11 @@ import { createMemo, type FlowProps } from 'solid-js';
 import type { StarryFlexProps } from './flex-type';
 
 export function Flex(props: FlowProps<StarryFlexProps>) {
-    const { classes, props: FlexProps } = createComponentFactory({
+    const {
+        classes,
+        props: FlexProps,
+        rootStyle,
+    } = createComponentFactory({
         name: 'flex',
         props,
         propDefaults: {
@@ -15,7 +19,7 @@ export function Flex(props: FlowProps<StarryFlexProps>) {
             wrap: false,
             gap: 10,
         },
-        selfPropNames: ['direction', 'x', 'y', 'wrap', 'gap', 'width', 'class'],
+        selfPropNames: ['direction', 'x', 'y', 'wrap', 'gap', 'width'],
         classes: (state) => ({
             direction: [state.direction],
             wrap: [state.wrap && 'wrap'],
@@ -32,8 +36,8 @@ export function Flex(props: FlowProps<StarryFlexProps>) {
 
     return (
         <div
-            style={styleObj()}
-            class={clsx(classes.direction, classes.wrap, classes.x, classes.y, classes.mode, FlexProps.class)}
+            style={rootStyle(styleObj())}
+            class={clsx(classes.direction, classes.wrap, classes.x, classes.y, classes.mode, classes.propsClass)}
         >
             {props.children}
         </div>

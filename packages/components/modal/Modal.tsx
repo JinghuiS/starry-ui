@@ -10,7 +10,11 @@ import { addUnit } from '@starry-ui/utils';
 
 export function Modal(props: FlowProps<StarryModalProps>) {
     const node = useDOMCreate();
-    const { props: ModalProps, classes } = createComponentFactory({
+    const {
+        props: ModalProps,
+        classes,
+        rootStyle,
+    } = createComponentFactory({
         name: 'modal',
         props: props,
         propDefaults: {
@@ -21,18 +25,7 @@ export function Modal(props: FlowProps<StarryModalProps>) {
             maskClose: true,
             destroyOnClose: false,
         },
-        selfPropNames: [
-            'width',
-            'height',
-            'title',
-            'visible',
-            'style',
-            'class',
-            'onMaskClick',
-            'maskClose',
-            'onClose',
-            'destroyOnClose',
-        ],
+        selfPropNames: ['width', 'height', 'title', 'visible', 'onMaskClick', 'maskClose', 'onClose', 'destroyOnClose'],
         classes: (state) => ({
             box: ['box'],
         }),
@@ -70,14 +63,11 @@ export function Modal(props: FlowProps<StarryModalProps>) {
     };
 
     const ModalBoxStyles = () => {
-        return mergeProps(
-            {
-                animation: visible() ? 'starryModalBoxOpen 0.25s' : 'starryModalBoxClose 0.25s',
-                width: addUnit(ModalProps.width),
-                height: addUnit(ModalProps.height),
-            },
-            ModalProps.style,
-        );
+        return {
+            animation: visible() ? 'starryModalBoxOpen 0.25s' : 'starryModalBoxClose 0.25s',
+            width: addUnit(ModalProps.width),
+            height: addUnit(ModalProps.height),
+        };
     };
     const handleMaskClick = () => {
         if (ModalProps.maskClose) {
@@ -90,8 +80,8 @@ export function Modal(props: FlowProps<StarryModalProps>) {
     return (
         <Portal mount={node}>
             <SlowShow retainDOM={!ModalProps.destroyOnClose} when={visible()}>
-                <div onClick={handleMaskClick} class={clsx(classes.base)} style={ModalMaskStyles()}>
-                    <div class={clsx(classes.box, ModalProps.class)} style={ModalBoxStyles()}>
+                <div onClick={handleMaskClick} class={clsx(classes.base, classes.propsClass)} style={ModalMaskStyles()}>
+                    <div class={clsx(classes.box, ModalProps.class)} style={rootStyle(ModalBoxStyles())}>
                         {props.children}
                     </div>
                 </div>

@@ -1,11 +1,16 @@
 import { createComponentFactory } from '@starry-ui/hooks';
+import clsx from 'clsx';
 import { createEffect, For, Show } from 'solid-js';
 import { Popover } from '../popover';
 import { Tag } from '../tag';
 import type { StarryBreadCrumbItemProps, StarryBreadCrumbProps } from './breadcrumb-types';
 
 export function Breadcrumb(props: StarryBreadCrumbProps) {
-    const { classes, props: BreadcrumbProps } = createComponentFactory({
+    const {
+        classes,
+        props: BreadcrumbProps,
+        rootStyle,
+    } = createComponentFactory({
         name: 'breadcrumb',
         selfPropNames: ['items', 'separator', 'maxCount', 'onClick'],
         props: props,
@@ -40,7 +45,7 @@ export function Breadcrumb(props: StarryBreadCrumbProps) {
 
     return (
         <>
-            <div class={classes.base}>
+            <div class={clsx(classes.base, classes.propsClass)} style={rootStyle()}>
                 <div class={classes.item}>
                     <For each={displayItems()}>
                         {(item, index) => (

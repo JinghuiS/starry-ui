@@ -15,7 +15,7 @@ export function RadioGroup(props: FlowProps<StarryRadioGroupProps>) {
             props.onClick(value);
         },
     });
-    const { classes, otherProps, directives } = createComponentFactory({
+    const { classes, otherProps, directives, rootStyle } = createComponentFactory({
         name: 'radio-group',
         selfPropNames: ['size', 'block', 'iconable', 'value', 'direction', 'disabled', 'onChange', 'onClick'],
         props: props,
@@ -37,7 +37,12 @@ export function RadioGroup(props: FlowProps<StarryRadioGroupProps>) {
 
     return (
         <RadioGroupContext.Provider value={context}>
-            <div ref={directives} class={clsx(classes.base, classes.size, classes.direction)} {...otherProps}>
+            <div
+                ref={directives}
+                class={clsx(classes.base, classes.size, classes.direction, classes.propsClass)}
+                style={rootStyle()}
+                {...otherProps}
+            >
                 {props.children}
                 <input value={value()} style={{ display: 'none' }} />
             </div>

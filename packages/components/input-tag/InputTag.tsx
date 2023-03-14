@@ -1,10 +1,16 @@
 import { createComponentFactory } from '@starry-ui/hooks';
+import { IconPlus } from '@tabler/icons-solidjs';
+import clsx from 'clsx';
 import { createSignal, For, Match, Show, Switch } from 'solid-js';
 import { Input } from '../input/Input';
 import { Tag } from '../tag';
 import type { StarryInputTagProps } from './input-tag-types';
 export function InputTag(props: StarryInputTagProps) {
-    const { props: InputTagProps, classes } = createComponentFactory({
+    const {
+        props: InputTagProps,
+        classes,
+        rootStyle,
+    } = createComponentFactory({
         name: 'input-tag',
         selfPropNames: ['tagType'],
         propDefaults: {
@@ -76,7 +82,7 @@ export function InputTag(props: StarryInputTagProps) {
         setTagsValue(tagsValue().filter((v: any, i: number) => index !== i));
     }
     return (
-        <div class={classes.baseView}>
+        <div style={rootStyle()} class={clsx(classes.baseView, classes.propsClass)}>
             <For each={tagsValue()}>
                 {(item, index) => (
                     <Tag colorType={InputTagProps.tagType} closable onClose={() => delTag(index())}>
@@ -88,22 +94,7 @@ export function InputTag(props: StarryInputTagProps) {
             <Switch>
                 <Match when={!isInput()}>
                     <label class={classes.button} onClick={openInput}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-plus"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M12 5l0 14"></path>
-                            <path d="M5 12l14 0"></path>
-                        </svg>
+                        <IconPlus size={24} />
                     </label>
                 </Match>
                 <Match when={isInput()}>
