@@ -3,6 +3,7 @@ import { createComputed, batch, mergeProps, splitProps } from 'solid-js';
 import { createMutable } from 'solid-js/store';
 import type { CommonProps } from '@starry-ui/types';
 import composeClasses from './composeClasses';
+import { createDangerousStringForStyles } from '@starry-ui/utils';
 
 export function createComponentFactory<
     C extends CommonProps,
@@ -18,7 +19,8 @@ export function createComponentFactory<
 }) {
     type IProps = C;
     function splitInProps(allProps: IProps) {
-        const [props, otherProps] = splitProps(allProps, options.selfPropNames);
+        const selfPropNames: (keyof C)[] = [...options.selfPropNames, 'class', 'style'];
+        const [props, otherProps] = splitProps(allProps, selfPropNames);
         return { allProps, props, otherProps };
     }
 
@@ -34,7 +36,9 @@ export function createComponentFactory<
                 baseClass = baseClass + ' ' + options.baseClass(options);
             }
 
-            return composeClasses(options.name, options.classes(ownerState), baseClass) as { [K in keyof CS]: string };
+            return composeClasses(options.name, options.classes(ownerState), baseClass, ownerState.class) as {
+                [K in keyof CS]: string;
+            };
         };
 
         const classes: {
@@ -51,7 +55,7 @@ export function createComponentFactory<
 
         type _ClassesType = typeof classes;
 
-        return classes as Readonly<_ClassesType & { base: string; baseView: string }>;
+        return classes as Readonly<_ClassesType & { base: string; baseView: string; propsClass: string }>;
     }
 
     function useProps(props: IProps, propDefaults?: IProps) {
@@ -63,6 +67,12 @@ export function createComponentFactory<
         return function directives(el: HTMLElement) {
             directiveList.map((directive) => directive(el));
         };
+    }
+    function rootStyle(style: CommonProps['style'] = {}) {
+        if (typeof props.style === 'string') {
+            return createDangerousStringForStyles(style) + ';' + props.style;
+        }
+        return mergeProps(style, props.style as any);
     }
 
     const directives = useDirectives(options.props);
@@ -76,5 +86,6 @@ export function createComponentFactory<
         allProps,
         otherProps,
         directives,
+        rootStyle,
     };
 }

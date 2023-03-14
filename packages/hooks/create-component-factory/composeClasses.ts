@@ -2,12 +2,13 @@
 export default function composeClasses<ClassKey extends string>(
     name: string,
     slots: Record<ClassKey, ReadonlyArray<string | false | undefined | null>>,
-
     classes: Record<string, string> | undefined,
+    propsClass?: string,
 ): Record<ClassKey, string> {
     const output: Record<ClassKey, string> = {
         base: `starry-${name} ${classes} `,
         baseView: `starry-${name}-view`,
+        propsClass: propsClass,
     } as any;
 
     Object.keys(slots).forEach(
