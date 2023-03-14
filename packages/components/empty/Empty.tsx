@@ -1,25 +1,32 @@
 import { createComponentFactory } from '@starry-ui/hooks';
 import { IconMoodEmpty } from '@tabler/icons-solidjs';
+import clsx from 'clsx';
 
 import { Result } from '../result';
 import type { StarryEmptyProps } from './empty-type';
 
 export function Empty(props: StarryEmptyProps) {
-    const { props: EmptyProps, otherProps } = createComponentFactory({
+    const {
+        props: EmptyProps,
+        otherProps,
+        classes,
+    } = createComponentFactory({
         name: 'empty',
         props,
         propDefaults: {
-            size: 60,
+            size: 50,
             title: '暂无数据',
         },
-        selfPropNames: ['size', 'content', 'title', 'icon'],
+        selfPropNames: ['size', 'content', 'title', 'icon', 'class'],
+        classes: () => ({}),
     });
     return (
         <Result
-            state="info"
+            state="normal"
             icon={EmptyProps.icon ? EmptyProps.icon : <IconMoodEmpty size={EmptyProps.size} />}
             {...EmptyProps}
             {...otherProps}
+            class={clsx(classes.base, EmptyProps.class)}
         >
             {props.children}
         </Result>

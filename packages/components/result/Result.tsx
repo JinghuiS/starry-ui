@@ -1,5 +1,6 @@
 import { createComponentFactory } from '@starry-ui/hooks';
 import { IconAlertCircle, IconAlertTriangle, IconBell, IconInfoCircle, IconMoodSmile } from '@tabler/icons-solidjs';
+import clsx from 'clsx';
 import { Match, Switch, type FlowProps } from 'solid-js';
 import { Flex } from '../flex';
 import { Title } from '../title';
@@ -19,7 +20,7 @@ export function Result(props: FlowProps<StarryResultProps>) {
             title: '',
             content: '',
         },
-        selfPropNames: ['state', 'title', 'content', 'icon'],
+        selfPropNames: ['state', 'title', 'content', 'icon', 'class'],
         classes: (state) => ({
             icon: ['icon', `icon-${state.state}`],
             title: ['title'],
@@ -28,9 +29,11 @@ export function Result(props: FlowProps<StarryResultProps>) {
     });
 
     return (
-        <Flex direction="y" class={classes.base} {...otherProps}>
+        <Flex direction="y" class={clsx(classes.base, ResultProps.class)} {...otherProps}>
             <Flex class={classes.icon}>
                 <Switch>
+                    <Match when={ResultProps.icon}>{ResultProps.icon}</Match>
+
                     <Match when={!ResultProps.icon && ResultProps.state === 'normal'}>
                         <IconInfoCircle size={60} />
                     </Match>
@@ -46,7 +49,6 @@ export function Result(props: FlowProps<StarryResultProps>) {
                     <Match when={!ResultProps.icon && ResultProps.state === 'info'}>
                         <IconBell size={60} />
                     </Match>
-                    <Match when={ResultProps.icon}>{ResultProps.icon}</Match>
                 </Switch>
             </Flex>
             <Title class={classes.title}>{ResultProps.title}</Title>
