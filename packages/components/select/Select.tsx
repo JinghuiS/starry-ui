@@ -68,6 +68,7 @@ export function Select(props: FlowProps<StarrySelectProps>) {
             optionsBox: ['options-box', state.filterable && 'options-margin'],
             header: ['header'],
             body: ['body', `body-${state.size}`, state.multiple && 'multiple-body', `body-align-${state.align}`],
+            empty: ['options-empty'],
         }),
     });
 
@@ -115,10 +116,9 @@ export function Select(props: FlowProps<StarrySelectProps>) {
                         </Show>
                         <div class={classes.optionsBox}>
                             {props.children}
-
-                            <Show when={optionArrayIsUndefined()}>
-                                <Empty />
-                            </Show>
+                            <label>
+                                <Empty class={classes.empty} />
+                            </label>
                         </div>
                     </div>
                 )}

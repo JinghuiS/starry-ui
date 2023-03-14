@@ -48,18 +48,20 @@ export function SelectOption(props: StarrySelectOptionProps) {
     };
 
     return (
-        <label style={optionVisibleStyle()}>
-            <div class={clsx(classes.base, classes.disabled, classes.checked)}>
-                <Show when={!props.children} fallback={<div class={classes.slot}></div>}>
-                    <Switch>
-                        <Match when={!selectContext?.multiple}>
-                            <div onClick={handleChangeValue} class={classes.label}>
-                                {SelectOptionProps.label}
-                            </div>
-                        </Match>
-                    </Switch>
-                </Show>
-            </div>
-        </label>
+        <Show when={isVisible()}>
+            <label>
+                <div class={clsx(classes.base, classes.disabled, classes.checked)}>
+                    <Show when={!props.children} fallback={<div class={classes.slot}></div>}>
+                        <Switch>
+                            <Match when={!selectContext?.multiple}>
+                                <div onClick={handleChangeValue} class={classes.label}>
+                                    {SelectOptionProps.label}
+                                </div>
+                            </Match>
+                        </Switch>
+                    </Show>
+                </div>
+            </label>
+        </Show>
     );
 }

@@ -162,7 +162,31 @@
         }
     }
 
+
+
     .starry-select-options-box {
+
+        .starry-select-options-empty {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label:last-child {
+            .starry-select-options-empty {
+                display: none;
+            }
+        }
+
+        label:first-child {
+            .starry-select-options-empty {
+                display: flex;
+            }
+        }
+
+
+
         overflow-y: auto;
         overflow-x: hidden;
         max-height: 300px;

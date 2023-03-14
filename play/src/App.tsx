@@ -84,7 +84,7 @@ const App: Component = () => {
                     }}
                 />
 
-                <Select multiple={loading()}>
+                <Select filterable>
                     <SelectOption label="测试" value={'1'} />
                     <SelectOption label="测试2" value={'2'} />
                     <SelectOption label="测33" value={'d'} />
