@@ -7,7 +7,7 @@ import type { StarryBreadCrumbItemProps, StarryBreadCrumbProps } from './breadcr
 export function Breadcrumb(props: StarryBreadCrumbProps) {
     const { classes, props: BreadcrumbProps } = createComponentFactory({
         name: 'breadcrumb',
-        selfPropNames: ['items', 'separator', 'maxCount'],
+        selfPropNames: ['items', 'separator', 'maxCount', 'onClick'],
         props: props,
         propDefaults: {
             separator: '/',
@@ -26,8 +26,8 @@ export function Breadcrumb(props: StarryBreadCrumbProps) {
     });
 
     function onClick(item: StarryBreadCrumbItemProps, index: number) {
-        console.log(item, index);
-        // if (!item.to) return;
+        BreadcrumbProps.onClick && BreadcrumbProps.onClick(item, index);
+        location.href = location.origin + item.to;
     }
     const _maxCount = () => BreadcrumbProps.maxCount || 0;
     const leftCount = () => parseInt((_maxCount() / 2).toString());
@@ -38,9 +38,6 @@ export function Breadcrumb(props: StarryBreadCrumbProps) {
             ? [...BreadcrumbProps.items.slice(0, leftCount()), ...BreadcrumbProps.items.slice(len() - rightCount())]
             : BreadcrumbProps.items;
 
-    createEffect(() => {
-        console.log(BreadcrumbProps.items, '1111111');
-    });
     return (
         <>
             <div class={classes.base}>
@@ -49,7 +46,7 @@ export function Breadcrumb(props: StarryBreadCrumbProps) {
                         {(item, index) => (
                             <>
                                 <span
-                                    class={index() === len() - 1 ? classes.isPath : ''}
+                                    class={index() === len() - 1 ? classes.active : ''}
                                     onClick={() => onClick(item, index())}
                                 >
                                     {item.label}

@@ -8,4 +8,5 @@ export interface StarryBreadCrumbProps extends CommonProps {
     items: StarryBreadCrumbItemProps[];
     separator?: JSX.Element;
     maxCount?: number;
+    onClick?: (data: StarryBreadCrumbItemProps, index: number) => void;
 }
