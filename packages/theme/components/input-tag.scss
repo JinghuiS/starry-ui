@@ -1,0 +1,33 @@
+.starry-input-tag-view {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 5px 0px;
+    box-sizing: border-box;
+    .starry-input-tag {
+        height: 26px;
+        flex-shrink: 1;
+         input {
+            height: 26px;
+        }
+    }
+}
+.starry-input-tag-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 26px;
+    width: 65px;
+    box-sizing: border-box;
+    border-radius: var(--starry-border-radius);
+    background-color: var(--starry-bgcolor-0);
+    color: var(--starry-text-color-8);
+    border: var(--starry-text-color-8) var(--starry-form-border-width) dashed;
+}
+.starry-input-tag-button:hover {
+    color: var(--starry-primary-color);
+    border: var(--starry-primary-color) var(--starry-form-border-width) dashed;
+}

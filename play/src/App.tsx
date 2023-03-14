@@ -17,6 +17,7 @@ import {
     Title,
     Breadcrumb,
     type StarryBreadCrumbItemProps,
+    InputTag,
 } from '@starry-ui/components';
 import { tooltip, starryLoading } from '@starry-ui/directives';
 
@@ -104,6 +105,7 @@ const App: Component = () => {
                 <Radio label="测试" iconable value={'abssssc'} />
             </RadioGroup>
             <Breadcrumb items={breadcrumbs()} maxCount={5}></Breadcrumb>
+            <InputTag tagType="success"></InputTag>
         </div>
     );
 };
