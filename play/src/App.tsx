@@ -15,6 +15,7 @@ import {
     Breadcrumb,
     type StarryBreadCrumbItemProps,
     InputTag,
+    Group,
 } from '@starry-ui/components';
 import { tooltip, starryLoading } from '@starry-ui/directives';
 
@@ -59,6 +60,13 @@ const App: Component = () => {
                 <Input clearable type="password" showPassword />
             </div>
 
+            <div>
+                <Group spacing={'large'} grow>
+                    <div class={styles.c}>1</div>
+                    <div class={styles.c}>2</div>
+                    <div class={styles.c}>3</div>
+                </Group>
+            </div>
             <Popover popoverBody={() => <div>测试k</div>}>
                 <Button
                     onClick={() => {
@@ -110,6 +118,7 @@ const App: Component = () => {
                 <Radio label="测试" iconable value={'111111'} />
                 <Radio label="测试" iconable value={'abssssc'} />
             </Radio.Group>
+
             <Breadcrumb items={breadcrumbs()} maxCount={5}></Breadcrumb>
             <InputTag tagType="success"></InputTag>
         </div>

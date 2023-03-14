@@ -11,3 +11,4 @@ export * from './flex';
 export * from './empty';
 export * from './breadcrumb';
 export * from './input-tag';
+export * from './group';

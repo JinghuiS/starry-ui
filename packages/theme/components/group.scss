@@ -1,0 +1,22 @@
+.starry-group {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+
+    align-items: var(--starry-group-align-items);
+    flex-wrap: var(--starry-group-flex-wrap);
+    justify-content: var(--starry-group-justify-content);
+    flex-grow: var(--starry-group-flex-grow);
+
+    gap: var(--starry-group-gap);
+
+    &>* {
+        box-sizing: border-box;
+        max-width: var(--starry-group-item-max-width);
+        flex-grow: var(--starry-group-flex-grow);
+    }
+
+    .starry-group-max-width {
+        max-width: var(--starry-group-item-max-width);
+    }
+}

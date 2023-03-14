@@ -12,6 +12,9 @@
     height: 40vmin;
     pointer-events: none;
 }
+.c {
+    border: 1px solid #b318f0;
+}
 
 .header {
     background-color: #282c34;
