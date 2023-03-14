@@ -1,3 +1,9 @@
-export * from './Radio';
+import { RadioGroup } from './RadioGroup';
+import { Radio as _Radio } from './Radio';
 export * from './radio-type';
-export * from './RadioGroup';
+
+const Radio = Object.assign(_Radio, {
+    Group: RadioGroup,
+});
+
+export { RadioGroup, Radio };

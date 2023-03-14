@@ -1,6 +1,5 @@
 import { type Component, createSignal } from 'solid-js';
 
-import logo from './logo.svg';
 import styles from './App.module.css';
 import {
     Button,
@@ -11,8 +10,6 @@ import {
     Radio,
     RadioGroup,
     Select,
-    SelectOption,
-    Tag,
     Textarea,
     Title,
     Breadcrumb,
@@ -95,16 +92,16 @@ const App: Component = () => {
                 />
 
                 <Select filterable>
-                    <SelectOption label="测试" value={'1'} />
-                    <SelectOption label="测试2" value={'2'} />
-                    <SelectOption label="测33" value={'d'} />
-                    <SelectOption label="试5" value={'a'} />
+                    <Select.Option label="测试" value={'1'} />
+                    <Select.Option label="测试2" value={'2'} />
+                    <Select.Option label="测33" value={'d'} />
+                    <Select.Option label="试5" value={'a'} />
                 </Select>
                 <Textarea clearable showCount style={{ 'margin-top': '20px' }} />
             </div>
 
             <Radio label="测试" iconable />
-            <RadioGroup
+            <Radio.Group
                 onClick={(e) => {
                     console.log(e);
                 }}
@@ -112,7 +109,7 @@ const App: Component = () => {
                 <Radio label="测试" iconable value={'abc'} />
                 <Radio label="测试" iconable value={'111111'} />
                 <Radio label="测试" iconable value={'abssssc'} />
-            </RadioGroup>
+            </Radio.Group>
             <Breadcrumb items={breadcrumbs()} maxCount={5}></Breadcrumb>
             <InputTag tagType="success"></InputTag>
         </div>
