@@ -34,6 +34,7 @@ importers:
       '@solid-primitives/utils': 5.4.0_solid-js@1.6.12
       '@tabler/icons-solidjs': 2.9.0_solid-js@1.6.12
       clsx: 1.2.1
+      dayjs: 1.11.7
       solid-js: 1.6.12
       tippy.js: 6.3.7
     devDependencies:
@@ -41,7 +42,6 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.54.1_uyiasnnzcqrxqkfvjklwnmwcha
       '@typescript-eslint/parser': 5.54.1_eslint@8.35.0
       commitlint: 17.4.4
-      dayjs: 1.11.7
       eslint: 8.35.0
       eslint-config-prettier: 8.7.0_eslint@8.35.0
       eslint-plugin-import: 2.27.5_uyiasnnzcqrxqkfvjklwnmwcha
@@ -1638,7 +1638,7 @@ packages:
 
   /dayjs/1.11.7:
     resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
-    dev: true
+    dev: false
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
