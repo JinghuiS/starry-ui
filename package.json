@@ -21,6 +21,7 @@
         "@typescript-eslint/eslint-plugin": "^5.54.1",
         "@typescript-eslint/parser": "^5.54.1",
         "commitlint": "^17.4.4",
+        "dayjs": "^1.11.7",
         "eslint": "^8.35.0",
         "eslint-config-prettier": "^8.7.0",
         "eslint-plugin-import": "^2.27.5",

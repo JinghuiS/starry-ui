@@ -13,6 +13,7 @@ importers:
       '@typescript-eslint/parser': ^5.54.1
       clsx: ^1.2.1
       commitlint: ^17.4.4
+      dayjs: ^1.11.7
       eslint: ^8.35.0
       eslint-config-prettier: ^8.7.0
       eslint-plugin-import: ^2.27.5
@@ -40,6 +41,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.54.1_uyiasnnzcqrxqkfvjklwnmwcha
       '@typescript-eslint/parser': 5.54.1_eslint@8.35.0
       commitlint: 17.4.4
+      dayjs: 1.11.7
       eslint: 8.35.0
       eslint-config-prettier: 8.7.0_eslint@8.35.0
       eslint-plugin-import: 2.27.5_uyiasnnzcqrxqkfvjklwnmwcha
@@ -1632,6 +1634,10 @@ packages:
   /dargs/7.0.0:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
     engines: {node: '>=8'}
+    dev: true
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: true
 
   /debug/3.2.7:
