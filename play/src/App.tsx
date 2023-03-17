@@ -16,6 +16,8 @@ import {
     type StarryBreadCrumbItemProps,
     InputTag,
     Group,
+    Cascader,
+    type StarryCascaderOptions,
 } from '@starry-ui/components';
 import { tooltip, starryLoading } from '@starry-ui/directives';
 
@@ -53,6 +55,69 @@ const App: Component = () => {
     ]);
     const v1 = '';
     const [radioV, setRadioV] = createSignal('');
+
+    const cascaderOptions: StarryCascaderOptions[] = [
+        {
+            value: 'zj',
+            label: '浙江',
+            children: [
+                {
+                    value: 'hz',
+                    label: '杭州',
+                    children: [
+                        {
+                            value: 'xh',
+                            label: '西湖区',
+                            children: [
+                                {
+                                    value: '77',
+                                    label: 'in77',
+                                },
+                                {
+                                    value: 'wl',
+                                    label: '武林广场',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    value: 'ls',
+                    label: '丽水',
+                    children: [
+                        {
+                            value: 'ld',
+                            label: '莲都区',
+                            children: [
+                                {
+                                    value: 'yt',
+                                    label: '银泰',
+                                },
+                                {
+                                    value: 'wd',
+                                    label: '万地',
+                                },
+                            ],
+                        },
+                        {
+                            value: 'jy',
+                            label: '缙云',
+                            children: [
+                                {
+                                    value: 'sc',
+                                    label: '小四川',
+                                },
+                                {
+                                    value: 'xd',
+                                    label: '仙都',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ];
     return (
         <div class={styles.App}>
             <div use:tooltip={{ content: v }}>112121</div>
@@ -99,13 +164,14 @@ const App: Component = () => {
                     }}
                 />
 
-                <Select filterable>
+                <Select>
                     <Select.Option label="测试" value={'1'} />
                     <Select.Option label="测试2" value={'2'} />
                     <Select.Option label="测33" value={'d'} />
                     <Select.Option label="试5" value={'a'} />
                 </Select>
                 <Textarea clearable showCount style={{ 'margin-top': '20px' }} />
+                <Cascader options={cascaderOptions} multiple></Cascader>
             </div>
 
             <Radio label="测试" iconable />

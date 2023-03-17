@@ -12,3 +12,4 @@ export * from './empty';
 export * from './breadcrumb';
 export * from './input-tag';
 export * from './group';
+export * from './cascader';
