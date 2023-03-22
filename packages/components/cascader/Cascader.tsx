@@ -74,7 +74,6 @@ export function Cascader(props: StarryCascaderProps) {
         setCheckList,
         checkList,
     };
-    ``;
     return (
         <CascaderContext.Provider value={context}>
             <Popover

@@ -17,9 +17,10 @@ import {
     InputTag,
     Group,
     Cascader,
-    type StarryCascaderOptions,
+    CheckboxGroup,
 } from '@starry-ui/components';
 import { tooltip, starryLoading } from '@starry-ui/directives';
+import { Checkbox } from '@starry-ui/components/checkbox/Checkbox';
 
 const App: Component = () => {
     const [loading, setLoading] = createSignal(false);
@@ -55,8 +56,8 @@ const App: Component = () => {
     ]);
     const v1 = '';
     const [radioV, setRadioV] = createSignal('');
-
-    const cascaderOptions: StarryCascaderOptions[] = [
+    const checkbox: string[] = [];
+    const cascaderOptions: any[] = [
         {
             value: 'zj',
             label: '浙江',
@@ -187,6 +188,23 @@ const App: Component = () => {
 
             <Breadcrumb items={breadcrumbs()} maxCount={5}></Breadcrumb>
             <InputTag tagType="success"></InputTag>
+            <Checkbox
+                indeterminate
+                size="large"
+                label="丽水"
+                onClick={(b) => {
+                    console.log(b);
+                }}
+            ></Checkbox>
+            <CheckboxGroup
+                onClick={(b) => {
+                    console.log(b);
+                }}
+            >
+                <Checkbox label="丽水" value="ls"></Checkbox>
+                <Checkbox label="衢州" value="qz"></Checkbox>
+                <Checkbox label="舟山" value="zs"></Checkbox>
+            </CheckboxGroup>
         </div>
     );
 };

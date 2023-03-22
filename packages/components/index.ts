@@ -13,3 +13,4 @@ export * from './breadcrumb';
 export * from './input-tag';
 export * from './group';
 export * from './cascader';
+export * from './checkbox';
